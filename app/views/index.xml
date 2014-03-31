@@ -1,8 +1,7 @@
 <Alloy>
-	<TabGroup>
+	<TabGroup class="appTab3">
 		<Tab title="Clothing" >
 			<Window id="clothingWindow">
-				<Label id="label" onClick="doClick">Hello, World</Label>
 			</Window>
 		</Tab>
 		<Tab title="Weather" >
