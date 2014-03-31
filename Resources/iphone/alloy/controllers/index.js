@@ -10,11 +10,18 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __defers = {};
+<<<<<<< HEAD
     $.__views.index = Ti.UI.createWindow({
         backgroundColor: "white",
         id: "index"
     });
     $.__views.index && $.addTopLevelView($.__views.index);
+=======
+    var __alloyId0 = [];
+    $.__views.clothingWindow = Ti.UI.createWindow({
+        id: "clothingWindow"
+    });
+>>>>>>> b6ac7dc43ed77f43defd06a862aeabf741cd3233
     $.__views.label = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
@@ -22,8 +29,33 @@ function Controller() {
         text: "Hello, World",
         id: "label"
     });
+<<<<<<< HEAD
     $.__views.index.add($.__views.label);
     doClick ? $.__views.label.addEventListener("click", doClick) : __defers["$.__views.label!click!doClick"] = true;
+=======
+    $.__views.clothingWindow.add($.__views.label);
+    doClick ? $.__views.label.addEventListener("click", doClick) : __defers["$.__views.label!click!doClick"] = true;
+    $.__views.__alloyId1 = Ti.UI.createTab({
+        window: $.__views.clothingWindow,
+        title: "Clothing",
+        id: "__alloyId1"
+    });
+    __alloyId0.push($.__views.__alloyId1);
+    $.__views.weatherWindow = Ti.UI.createWindow({
+        id: "weatherWindow"
+    });
+    $.__views.__alloyId2 = Ti.UI.createTab({
+        window: $.__views.weatherWindow,
+        title: "Weather",
+        id: "__alloyId2"
+    });
+    __alloyId0.push($.__views.__alloyId2);
+    $.__views.index = Ti.UI.createTabGroup({
+        tabs: __alloyId0,
+        id: "index"
+    });
+    $.__views.index && $.addTopLevelView($.__views.index);
+>>>>>>> b6ac7dc43ed77f43defd06a862aeabf741cd3233
     exports.destroy = function() {};
     _.extend($, $.__views);
     $.index.open();

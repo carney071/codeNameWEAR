@@ -1,5 +1,12 @@
 <Alloy>
-	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
-	</Window>
+	<TabGroup>
+		<Tab title="Clothing" >
+			<Window id="clothingWindow">
+				<Label id="label" onClick="doClick">Hello, World</Label>
+			</Window>
+		</Tab>
+		<Tab title="Weather" >
+			<Window id="weatherWindow"></Window>
+		</Tab>
+	</TabGroup>
 </Alloy>
