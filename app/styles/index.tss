@@ -5,12 +5,14 @@
 	backgroundColor:"#FA30961"
 } ,
 "#clothingWindow":{
-	backgroundColor:"#00007A"
+	backgroundColor:"#9A5613"
 },
 "#weatherWindow":{
 	backgroundColor:"#fff"
 }
 ".appTab3":{
-	tabsBackgroundColor:"blue"
+	tabsBackgroundColor:"#05333E",
+	fontSize:"10px",
+	textAlign:"Center",
 }
 

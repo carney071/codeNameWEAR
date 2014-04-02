@@ -8,28 +8,29 @@ function Controller() {
     var exports = {};
     var __alloyId0 = [];
     $.__views.clothingWindow = Ti.UI.createWindow({
-        backgroundColor: "#00007A",
+        backgroundColor: "#9A5613",
         id: "clothingWindow"
     });
-    $.__views.appTab2 = Ti.UI.createTab({
+    $.__views.__alloyId1 = Ti.UI.createTab({
         window: $.__views.clothingWindow,
         title: "Clothing",
-        id: "appTab2"
+        id: "__alloyId1"
     });
-    __alloyId0.push($.__views.appTab2);
+    __alloyId0.push($.__views.__alloyId1);
     $.__views.weatherWindow = Ti.UI.createWindow({
         backgroundColor: "#fff",
         id: "weatherWindow"
     });
-    $.__views.__alloyId1 = Ti.UI.createTab({
-        tabsBackgroundColor: "green",
+    $.__views.__alloyId2 = Ti.UI.createTab({
         window: $.__views.weatherWindow,
         title: "Weather",
-        id: "__alloyId1"
+        id: "__alloyId2"
     });
-    __alloyId0.push($.__views.__alloyId1);
+    __alloyId0.push($.__views.__alloyId2);
     $.__views.index = Ti.UI.createTabGroup({
-        tabsBackgroundColor: "blue",
+        tabsBackgroundColor: "#05333E",
+        fontSize: "10px",
+        textAlign: "Center",
         tabs: __alloyId0,
         id: "index"
     });
