@@ -2,6 +2,24 @@ function doClick(e) {
     alert($.label.text);
 }
 
+var init = function() {
+	var myArray = [];
+
+	for (var i = 0; i < 5; i++) {
+		var row = Ti.UI.createTableViewRow({
+			title: "row" + i,
+			backgroundColor: randomColor()
+
+		});
+
+		myArray.push(row);
+	}
+	$.myTable.setData(myArray);
+
+	$.index.open();
+	};
+
+
 
 /*
 var url= "http://www.weather.com";
@@ -22,7 +40,10 @@ var client = Ti.Network.HTTPClient({
 
 
 
-
+/*$.Clothing.addEventListener("click", function(){
+	tabsBackgroundColor = "#00990";
+	
+});*/
 
 
 $.index.open();

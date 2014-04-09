@@ -1,4 +1,7 @@
 function Controller() {
+    function doClick() {
+        alert($.label.text);
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -6,38 +9,61 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    var __alloyId0 = [];
-    $.__views.clothingWindow = Ti.UI.createWindow({
-        backgroundColor: "#9A5613",
-        id: "clothingWindow"
-    });
-    $.__views.__alloyId1 = Ti.UI.createTab({
-        window: $.__views.clothingWindow,
-        title: "Clothing",
-        id: "__alloyId1"
-    });
-    __alloyId0.push($.__views.__alloyId1);
-    $.__views.weatherWindow = Ti.UI.createWindow({
-        backgroundColor: "#fff",
-        id: "weatherWindow"
-    });
-    $.__views.__alloyId2 = Ti.UI.createTab({
-        window: $.__views.weatherWindow,
-        title: "Weather",
-        id: "__alloyId2"
-    });
-    __alloyId0.push($.__views.__alloyId2);
-    $.__views.index = Ti.UI.createTabGroup({
-        tabsBackgroundColor: "#05333E",
-        fontSize: "10px",
-        textAlign: "Center",
-        tabs: __alloyId0,
+    var __defers = {};
+    $.__views.index = Ti.UI.createWindow({
+        title: "Main",
         id: "index"
     });
     $.__views.index && $.addTopLevelView($.__views.index);
+    $.__views.label1 = Ti.UI.createLabel({
+        id: "label1",
+        color: "#900",
+        text: "This is the weather section",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        top: "5%",
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        zIndex: "1"
+    });
+    $.__views.index.add($.__views.label1);
+    $.__views.Weather = Ti.UI.createView({
+        id: "Weather",
+        backgroundColor: "#FF3333",
+        width: "100%",
+        height: "50%",
+        top: "0%"
+    });
+    $.__views.index.add($.__views.Weather);
+    $.__views.myTable = Ti.UI.createTableView({
+        id: "myTable",
+        backgroundColor: "#FF1111",
+        top: "18%",
+        zIndex: "2"
+    });
+    $.__views.Weather.add($.__views.myTable);
+    $.__views.Clothing = Ti.UI.createView({
+        id: "Clothing",
+        backgroundColor: "#0066FF",
+        width: "100%",
+        height: "50%",
+        top: "50%"
+    });
+    $.__views.index.add($.__views.Clothing);
+    $.__views.button = Ti.UI.createButton({
+        id: "button",
+        title: "What should I wear?",
+        top: "25%",
+        width: "50%",
+        height: "50",
+        color: "0011FF",
+        backgroundColor: "1100FF"
+    });
+    $.__views.Clothing.add($.__views.button);
+    doClick ? $.__views.button.addEventListener("click", doClick) : __defers["$.__views.button!click!doClick"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
     $.index.open();
+    __defers["$.__views.button!click!doClick"] && $.__views.button.addEventListener("click", doClick);
     _.extend($, exports);
 }
 
