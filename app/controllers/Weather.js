@@ -1,13 +1,62 @@
+var apiCall = Ti.Network.createHTTPClient();
+apiCall.onload = function(){
+	
+};
+apiCall.open("GET","http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
+
+apiCall.onload = function(){
+	try{
+	var rows = searchResultsToRows(this.responseText);
+	$.wdata.setData(rows,{
+		
+	});
+	}catch(e){
+		Ti.API.info(e);
+	
+	}
+};
+apiCall.send();
+
+searchResultsToRows = function(responseText){
+	var data=[],
+	json = JSON.parse(responseText),
+	jsonlenth = json.length;
+	//for (var i = 0; i >5; i++)
+	for(var key in json){
+		if(json.hasOwnProperty(key)){
+			var item = json[key];
+			data.push(Alloy.createController('index',
+			{
+				//name: item.title,
+				//running: item.ISRUNNING,
+				//everthing: item
+				
+			}).getview($.index.xml));
+			}
+		}
+		
+
+
+
+
+
+
+
+
+/*
 var win = Titanium.UI.currentWindow;
 function loadWeather(){
 	var weatherData=[];
 	var loader = Titanium.Network.createHTTPClient();
 	loader.open("GET","http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
+	
 	loader.onload = function(){
-		var weather = eval();
+		
+		alert(loader);
+		
+		//var weather = eval();
 	};
-	loader.send();
-};
+	};
 
 
 

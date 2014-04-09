@@ -28,6 +28,7 @@ function Controller() {
     });
     __alloyId0.push($.__views.__alloyId2);
     $.__views.index = Ti.UI.createTabGroup({
+        tabsBackgroundColor: "#05333E",
         fontSize: "10px",
         textAlign: "Center",
         tabs: __alloyId0,
@@ -36,9 +37,6 @@ function Controller() {
     $.__views.index && $.addTopLevelView($.__views.index);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    $.Clothing.addEventListener("click", function() {
-        "#05333E";
-    });
     $.index.open();
     _.extend($, exports);
 }
