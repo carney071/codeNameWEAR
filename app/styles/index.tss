@@ -1,18 +1,4 @@
-"Label": {
-	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
-	color: "#fff",
-	backgroundColor:"#FA30961"
-} ,
-"#clothingWindow":{
-	backgroundColor:"#9A5613"
-},
-"#weatherWindow":{
-	backgroundColor:"#fff"
-}
-".appTab3":{
-	tabsBackgroundColor:"#05333E",
-	fontSize:"10px",
-	textAlign:"Center",
-}
+
+
+
 
