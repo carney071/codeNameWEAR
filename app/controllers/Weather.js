@@ -1,4 +1,4 @@
-var apiCall = Ti.Network.createHTTPClient();
+/*var apiCall = Ti.Network.createHTTPClient();
 apiCall.onload = function(){
 	
 };
@@ -36,7 +36,7 @@ searchResultsToRows = function(responseText){
 		}
 		
 
-
+*/
 
 
 

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 
-
-
-=======
 function doClick(e) {
     alert($.label.text);
 }
@@ -10,10 +6,10 @@ function doClick(e) {
 var init = function() {
 	var myArray = [];
 
-	for (var i = 0; i < 5; i++) {
+	for (var i = 0; i < 4; i++) {
 		var row = Ti.UI.createTableViewRow({
 			title: "row" + i,
-			backgroundColor: randomColor()
+			
 
 		});
 
@@ -41,7 +37,7 @@ var client = Ti.Network.HTTPClient({
 });
 
 */
->>>>>>> FETCH_HEAD
+
 
 
 

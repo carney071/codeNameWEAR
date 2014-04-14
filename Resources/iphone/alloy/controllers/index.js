@@ -15,47 +15,62 @@ function Controller() {
         id: "index"
     });
     $.__views.index && $.addTopLevelView($.__views.index);
-    $.__views.label1 = Ti.UI.createLabel({
-        id: "label1",
-        color: "#900",
-        text: "This is the weather section",
-        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "5%",
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        zIndex: "1"
-    });
-    $.__views.index.add($.__views.label1);
     $.__views.Weather = Ti.UI.createView({
         id: "Weather",
-        backgroundColor: "#FF3333",
+        backgroundColor: "#FF1111",
         width: "100%",
-        height: "50%",
+        height: "75%",
         top: "0%"
     });
     $.__views.index.add($.__views.Weather);
+    $.__views.label1 = Ti.UI.createLabel({
+        id: "label1",
+        color: "#900",
+        backgroundColor: "#FFFFFF",
+        text: "Weather",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        top: "7%",
+        width: "100%",
+        height: Ti.UI.SIZE,
+        zIndex: "3"
+    });
+    $.__views.Weather.add($.__views.label1);
     $.__views.myTable = Ti.UI.createTableView({
         id: "myTable",
-        backgroundColor: "#FF1111",
-        top: "18%",
-        zIndex: "2"
+        backgroundColor: "#990000",
+        top: "14%",
+        zIndex: "1",
+        width: "90%",
+        height: "80%"
     });
     $.__views.Weather.add($.__views.myTable);
     $.__views.Clothing = Ti.UI.createView({
         id: "Clothing",
         backgroundColor: "#0066FF",
         width: "100%",
-        height: "50%",
-        top: "50%"
+        height: "25%",
+        top: "75%"
     });
     $.__views.index.add($.__views.Clothing);
+    $.__views.label2 = Ti.UI.createLabel({
+        id: "label2",
+        color: "#0066FF",
+        backgroundColor: "#FFFFFF",
+        text: "Comfy Clothing",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        top: "5%",
+        width: "100%",
+        height: Ti.UI.SIZE,
+        zIndex: "2"
+    });
+    $.__views.Clothing.add($.__views.label2);
     $.__views.button = Ti.UI.createButton({
         id: "button",
         title: "What should I wear?",
-        top: "25%",
+        top: "40%",
         width: "50%",
         height: "50",
-        color: "0011FF",
+        color: "#0066FF",
         backgroundColor: "1100FF"
     });
     $.__views.Clothing.add($.__views.button);

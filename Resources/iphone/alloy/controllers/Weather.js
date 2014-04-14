@@ -12,10 +12,6 @@ function Controller() {
     $.__views.Weather && $.addTopLevelView($.__views.Weather);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var apiCall = Ti.Network.createHTTPClient();
-    apiCall.onload = function() {};
-    apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
-    apiCall.send();
     _.extend($, exports);
 }
 
