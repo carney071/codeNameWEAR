@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 
 //getting data
 var apiCall = Ti.Network.createHTTPClient();
-=======
-/*var apiCall = Ti.Network.createHTTPClient();
-apiCall.onload = function(){
-	
-};
->>>>>>> 712f421ea1af0316a44a494042d2ae3ad45fed38
 apiCall.open("GET","http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
 
 
@@ -56,52 +49,9 @@ Ti.API.info('jsonlength');
 	return data;
 
 
-*/
+
 
 
 	};
 		
 	$.index.open();
-
-
-
-
-/*
-
-
-
-
-var win = Titanium.UI.currentWindow;
-function loadWeather(){
-	var weatherData=[];
-	var loader = Titanium.Network.createHTTPClient();
-	loader.open("GET","http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
-	
-	loader.onload = function(){
-		
-		alert(loader);
-		
-		//var weather = eval();
-	};
-	};
-
-
-
-
-/*
-var APP = require("core");
-
-var CONFIG = arguments[0];
-
-
-var apiCall = Ti.Network.createHTTPClient();
-xhr.onload = function() {
-  var json = JSON.parse(this.responseText);
-  for (var i = 0; i < json.data.children.length; i++){
-  	
-  	//Ti.API.info("Title: " = json.data.children[i].data.title);
-  	
-  }
-};
-apiCall.open('GET', 'http://api.wunderground.com/api/key/geolookup/q/94107.json');
-apiCall.send();*/

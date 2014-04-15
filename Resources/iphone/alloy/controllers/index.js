@@ -81,8 +81,6 @@ function Controller() {
     Ti.API.info("args" + args);
     Ti.API.info("Inspecting Object:" + args);
     for (var thing in args) Ti.API.info("args." + thing + "=" + args[things]);
-    var location = Titanium.Geolocation.ACCURACY_LOW;
-    alert(location);
     $.index.open();
     __defers["$.__views.button!click!doClick"] && $.__views.button.addEventListener("click", doClick);
     _.extend($, exports);
