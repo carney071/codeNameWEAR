@@ -62,6 +62,12 @@ function Controller() {
     doClick ? $.__views.button.addEventListener("click", doClick) : __defers["$.__views.button!click!doClick"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
+    var args = arguments[0] || {};
+    Ti.API.info("args" + args);
+    Ti.API.info("Inspecting Object:" + args);
+    for (var thing in args) Ti.API.info("args." + thing + "=" + args[things]);
+    var location = Titanium.Geolocation.ACCURACY_LOW;
+    alert(location);
     $.index.open();
     __defers["$.__views.button!click!doClick"] && $.__views.button.addEventListener("click", doClick);
     _.extend($, exports);

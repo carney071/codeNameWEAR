@@ -1,14 +1,28 @@
-<<<<<<< HEAD
+
+var args = arguments[0] || {};
+
+Ti.API.info('args'+ args);
+
+Ti.API.info('Inspecting Object:' + args);
+for( var thing in args){
+	Ti.API.info("args."+ thing + '=' + args[things]);
+}
+
+
+//var location = Titanium.Geolocation.ACCURACY_LOW;
+//	alert(location);
+	
 
 
 
-=======
 function doClick(e) {
     alert($.label.text);
 }
 
 var init = function() {
+/*
 	var myArray = [];
+
 
 	for (var i = 0; i < 5; i++) {
 		var row = Ti.UI.createTableViewRow({
@@ -20,8 +34,7 @@ var init = function() {
 		myArray.push(row);
 	}
 	$.myTable.setData(myArray);
-
-	$.index.open();
+*/
 	};
 
 
@@ -41,7 +54,7 @@ var client = Ti.Network.HTTPClient({
 });
 
 */
->>>>>>> FETCH_HEAD
+
 
 
 
