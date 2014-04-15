@@ -1,11 +1,12 @@
 <Alloy>
 	<Window title="Main">
-		<Label id="label1" color="#900"  text="This is the weather section" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="5%" width="Ti.UI.SIZE" height="Ti.UI.SIZE" zIndex="1"/>
-		<View id="Weather" backgroundColor="#FF3333" width="100%" height="50%" top="0%">
-			<TableView id="myTable" backgroundColor="#FF1111" top="18%" zIndex="2"></TableView>
+		<View id="Weather" backgroundColor="#FF1111" width="100%" height="75%" top="0%">
+			<Label id="label1" color="#900" backgroundColor="#FFFFFF" text="Weather" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="7%" width="100%" height="Ti.UI.SIZE" zIndex="3"/>
+			<TableView id="myTable" backgroundColor="#990000" top="14%" zIndex="1" width="90%" height="80%"></TableView>
 		</View>
-		<View id="Clothing" backgroundColor="#0066FF" width="100%" height="50%" top="50%">
-			<Button id="button" onClick="doClick" title="What should I wear?" top="25%" width="50%" height="50" color="0011FF" backgroundColor="1100FF"/>
+		<View id="Clothing" backgroundColor="#0066FF" width="100%" height="25%" top="75%">
+			<Label id="label2" color="#0066FF"  backgroundColor="#FFFFFF" text="Comfy Clothing" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="5%" width="100%" height="Ti.UI.SIZE" zIndex="2"/>
+			<Button id="button" onClick="doClick" title="What should I wear?" top="40%" width="50%" height="50" color="#0066FF" backgroundColor="1100FF"/>
 		</View>
 	</Window>
 </Alloy>

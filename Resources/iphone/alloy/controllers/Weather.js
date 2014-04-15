@@ -12,6 +12,7 @@ function Controller() {
     $.__views.Weather && $.addTopLevelView($.__views.Weather);
     exports.destroy = function() {};
     _.extend($, $.__views);
+<<<<<<< HEAD
     var apiCall = Ti.Network.createHTTPClient();
     apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
     apiCall.onload = function() {
@@ -38,6 +39,8 @@ function Controller() {
         }
         return data;
     };
+=======
+>>>>>>> 712f421ea1af0316a44a494042d2ae3ad45fed38
     _.extend($, exports);
 }
 

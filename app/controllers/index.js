@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 var args = arguments[0] || {};
 
@@ -15,6 +16,9 @@ for( var thing in args){
 
 
 
+=======
+
+>>>>>>> 712f421ea1af0316a44a494042d2ae3ad45fed38
 function doClick(e) {
     alert($.label.text);
 }
@@ -23,11 +27,15 @@ var init = function() {
 /*
 	var myArray = [];
 
+<<<<<<< HEAD
 
 	for (var i = 0; i < 5; i++) {
+=======
+	for (var i = 0; i < 4; i++) {
+>>>>>>> 712f421ea1af0316a44a494042d2ae3ad45fed38
 		var row = Ti.UI.createTableViewRow({
 			title: "row" + i,
-			backgroundColor: randomColor()
+			
 
 		});
 

@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 
 //getting data
 var apiCall = Ti.Network.createHTTPClient();
+=======
+/*var apiCall = Ti.Network.createHTTPClient();
+apiCall.onload = function(){
+	
+};
+>>>>>>> 712f421ea1af0316a44a494042d2ae3ad45fed38
 apiCall.open("GET","http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
 
 
@@ -49,7 +56,7 @@ Ti.API.info('jsonlength');
 	return data;
 
 
-
+*/
 
 
 	};
