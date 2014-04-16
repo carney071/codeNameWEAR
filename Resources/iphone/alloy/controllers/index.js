@@ -1,7 +1,4 @@
 function Controller() {
-    function doClick() {
-        alert($.label.text);
-    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -9,7 +6,6 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    var __defers = {};
     $.__views.index = Ti.UI.createWindow({
         title: "Main",
         id: "index"
@@ -35,15 +31,18 @@ function Controller() {
         zIndex: "3"
     });
     $.__views.Weather.add($.__views.label1);
-    $.__views.myTable = Ti.UI.createTableView({
-        id: "myTable",
-        backgroundColor: "#990000",
-        top: "14%",
-        zIndex: "1",
-        width: "90%",
-        height: "80%"
+    $.__views.temp = Ti.UI.createLabel({
+        id: "temp",
+        color: "#FFFFFF",
+        backgroundColor: "#900",
+        text: "temp",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        top: "15%",
+        width: "30%",
+        height: "10%",
+        zIndex: "4"
     });
-    $.__views.Weather.add($.__views.myTable);
+    $.__views.Weather.add($.__views.temp);
     $.__views.Clothing = Ti.UI.createView({
         id: "Clothing",
         backgroundColor: "#0066FF",
@@ -74,26 +73,27 @@ function Controller() {
         backgroundColor: "1100FF"
     });
     $.__views.Clothing.add($.__views.button);
-    doClick ? $.__views.button.addEventListener("click", doClick) : __defers["$.__views.button!click!doClick"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var args = arguments[0] || {};
-    var apiCall = Ti.Network.createHTTPClient();
-    apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
-    apiCall.onload = function() {
-        try {
-            var json = JSON.parse(this.responseText);
-            Ti.API.info("temp_f =" + json.current_observation.temp_f);
-        } catch (e) {
-            Ti.API.info(e);
-        }
+    var init = function() {
+        getWeather();
+        $.index.open();
     };
-    apiCall.send();
-    Ti.API.info("args" + args);
-    Ti.API.info("Inspecting Object:" + args);
-    for (var thing in args) Ti.API.info("args." + thing + "=" + args[things]);
-    $.index.open();
-    __defers["$.__views.button!click!doClick"] && $.__views.button.addEventListener("click", doClick);
+    var getWeather = function() {
+        arguments[0] || {};
+        var apiCall = Ti.Network.createHTTPClient();
+        apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
+        apiCall.onload = function() {
+            try {
+                var json = JSON.parse(this.responseText);
+                Ti.API.info("temp_f= " + json.current_observation.temp_f);
+            } catch (e) {
+                Ti.API.info(e);
+            }
+        };
+        apiCall.send();
+    };
+    init();
     _.extend($, exports);
 }
 
