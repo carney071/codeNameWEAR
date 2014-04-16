@@ -78,6 +78,17 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
+    var apiCall = Ti.Network.createHTTPClient();
+    apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
+    apiCall.onload = function() {
+        try {
+            var json = JSON.parse(this.responseText);
+            Ti.API.info("temp_f =" + json.current_observation.temp_f);
+        } catch (e) {
+            Ti.API.info(e);
+        }
+    };
+    apiCall.send();
     Ti.API.info("args" + args);
     Ti.API.info("Inspecting Object:" + args);
     for (var thing in args) Ti.API.info("args." + thing + "=" + args[things]);

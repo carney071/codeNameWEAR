@@ -16,10 +16,8 @@ function Controller() {
     apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
     apiCall.onload = function() {
         try {
-            var rows = searchResultsToRows(this.responseText);
-            $.myTable.setData(rows, {
-                animationStyle: Titanium.UI.iPhone.RowAnimationStyle.BOTTOM
-            });
+            var json = JSON.parse(this.responseText);
+            Ti.API.info("temp_f =" + json.current_observation.temp_f);
         } catch (e) {
             Ti.API.info(e);
         }
@@ -31,10 +29,10 @@ function Controller() {
         Ti.API.info("json");
         Ti.API.info("jsonlength");
         for (var key in json) if (json.hasOwnProperty(key)) {
-            var item = json[key];
-            data.push(Alloy.createController("weather", {
-                everything: item
-            }).getview());
+            json[key];
+            Ti.UI.createTableViewRow({
+                title: "row" + i
+            });
         }
         return data;
     };

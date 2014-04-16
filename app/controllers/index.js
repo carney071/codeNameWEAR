@@ -1,69 +1,35 @@
-///////////////
 
-var args = arguments[0] || {};
-
-Ti.API.info('args'+ args);
-
-Ti.API.info('Inspecting Object:' + args);
-for( var thing in args){
-	Ti.API.info("args."+ thing + '=' + args[things]);
-}
-
-
-//var location = Titanium.Geolocation.ACCURACY_LOW;
-//	alert(location);
-	
+var init = function(){
+	getWeather();
+	$.index.open();
+};
 
 
 
-function doClick(e) {
-    alert($.label.text);
-}
 
-var init = function() {
-/*
-	var myArray = [];
+var getWeather = function() {
+	var args = arguments[0] || {};
 
+	//getting data
+	var apiCall = Ti.Network.createHTTPClient();
+	apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
 
-	for (var i = 0; i < 5; i++) {
-		var row = Ti.UI.createTableViewRow({
-			title: "row" + i,
-			backgroundColor: randomColor()
+	//on a successful load of data
+	apiCall.onload = function() {
+		try {
+			var json = JSON.parse(this.responseText);
 
-		});
+			Ti.API.info('temp_f= ' + json.current_observation.temp_f);
 
-		myArray.push(row);
-	}
-	$.myTable.setData(myArray);
-*/
+		} catch(e) {
+			Ti.API.info(e);
+		}
+
 	};
 
-
-
-/*
-var url= "http://www.weather.com";
-var client = Ti.Network.HTTPClient({
-	onload : function(e){
-		Ti.API.info();
-		alert('success');
-	},
-	onerror : function(e){
-		Ti.API.debug(e.error);
-		alert('There has been an error');
-	},
-	timeout : 5000 //in Milliseconds
-});
-
-*/
-
-
-
-
-
-/*$.Clothing.addEventListener("click", function(){
-	tabsBackgroundColor = "#00990";
+	//executes send for data
+	apiCall.send();
 	
-});*/
+};
 
-
-$.index.open();
+init();
