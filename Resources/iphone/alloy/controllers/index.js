@@ -31,15 +31,18 @@ function Controller() {
         zIndex: "3"
     });
     $.__views.Weather.add($.__views.label1);
-    $.__views.myTable = Ti.UI.createTableView({
-        id: "myTable",
-        backgroundColor: "#990000",
-        top: "14%",
-        zIndex: "1",
-        width: "90%",
-        height: "80%"
+    $.__views.temp = Ti.UI.createLabel({
+        id: "temp",
+        color: "#FFFFFF",
+        backgroundColor: "#900",
+        text: "temp",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        top: "15%",
+        width: "30%",
+        height: "10%",
+        zIndex: "4"
     });
-    $.__views.Weather.add($.__views.myTable);
+    $.__views.Weather.add($.__views.temp);
     $.__views.Clothing = Ti.UI.createView({
         id: "Clothing",
         backgroundColor: "#0066FF",
@@ -74,6 +77,8 @@ function Controller() {
     _.extend($, $.__views);
     var init = function() {
         getWeather();
+        win.add(labelTemp);
+        win.open();
         $.index.open();
     };
     var getWeather = function() {
@@ -88,6 +93,10 @@ function Controller() {
                 Ti.API.info("Feels Like=" + json.current_observation.feelslike_f);
                 Ti.API.info("Picture" + json.currrent_observation.icon);
                 Ti.API.info("icon" + json.current_observation.icon_url);
+                Ti.UI.createLabel({
+                    text: "json.current_observation.temp_f",
+                    zIndex: "5"
+                });
             } catch (e) {
                 Ti.API.info(e);
             }

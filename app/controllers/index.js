@@ -1,11 +1,10 @@
-
-var init = function(){
+var init = function() {
 	getWeather();
+	win.add(labelTemp);
+	win.open();
 	$.index.open();
+
 };
-
-
-
 
 var getWeather = function() {
 	var args = arguments[0] || {};
@@ -23,8 +22,13 @@ var getWeather = function() {
 			Ti.API.info('temp_f= ' + json.current_observation.temp_f);
 			Ti.API.info('weather=' + json.current_observation.weather);
 			Ti.API.info('Feels Like=' + json.current_observation.feelslike_f);
-			Ti.API.info('Picture'+ json.currrent_observation.icon);
-			Ti.API.info('icon'+ json.current_observation.icon_url);
+			Ti.API.info('Picture' + json.currrent_observation.icon);
+			Ti.API.info('icon' + json.current_observation.icon_url);
+			var labelTemp = Ti.UI.createLabel({
+				text : 'json.current_observation.temp_f',
+				zIndex : '5'
+			});
+
 		} catch(e) {
 			Ti.API.info(e);
 		}
@@ -33,7 +37,7 @@ var getWeather = function() {
 
 	//executes send for data
 	apiCall.send();
-	
+
 };
 
 init();
