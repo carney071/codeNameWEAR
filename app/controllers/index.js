@@ -17,10 +17,14 @@ var getWeather = function() {
 	//on a successful load of data
 	apiCall.onload = function() {
 		try {
+			//this takes the data from weather.com and makes it useable
 			var json = JSON.parse(this.responseText);
-
+			//this is were we are selecting the certain information from weather.com
 			Ti.API.info('temp_f= ' + json.current_observation.temp_f);
-
+			Ti.API.info('weather=' + json.current_observation.weather);
+			Ti.API.info('Feels Like=' + json.current_observation.feelslike_f);
+			Ti.API.info('Picture'+ json.currrent_observation.icon);
+			Ti.API.info('icon'+ json.current_observation.icon_url);
 		} catch(e) {
 			Ti.API.info(e);
 		}

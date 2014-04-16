@@ -1,7 +1,4 @@
 function Controller() {
-    function doClick() {
-        alert($.label.text);
-    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -9,7 +6,6 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    var __defers = {};
     $.__views.index = Ti.UI.createWindow({
         title: "Main",
         id: "index"
@@ -74,26 +70,31 @@ function Controller() {
         backgroundColor: "1100FF"
     });
     $.__views.Clothing.add($.__views.button);
-    doClick ? $.__views.button.addEventListener("click", doClick) : __defers["$.__views.button!click!doClick"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var args = arguments[0] || {};
-    var apiCall = Ti.Network.createHTTPClient();
-    apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
-    apiCall.onload = function() {
-        try {
-            var json = JSON.parse(this.responseText);
-            Ti.API.info("temp_f =" + json.current_observation.temp_f);
-        } catch (e) {
-            Ti.API.info(e);
-        }
+    var init = function() {
+        getWeather();
+        $.index.open();
     };
-    apiCall.send();
-    Ti.API.info("args" + args);
-    Ti.API.info("Inspecting Object:" + args);
-    for (var thing in args) Ti.API.info("args." + thing + "=" + args[things]);
-    $.index.open();
-    __defers["$.__views.button!click!doClick"] && $.__views.button.addEventListener("click", doClick);
+    var getWeather = function() {
+        arguments[0] || {};
+        var apiCall = Ti.Network.createHTTPClient();
+        apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
+        apiCall.onload = function() {
+            try {
+                var json = JSON.parse(this.responseText);
+                Ti.API.info("temp_f= " + json.current_observation.temp_f);
+                Ti.API.info("weather=" + json.current_observation.weather);
+                Ti.API.info("Feels Like=" + json.current_observation.feelslike_f);
+                Ti.API.info("Picture" + json.currrent_observation.icon);
+                Ti.API.info("icon" + json.current_observation.icon_url);
+            } catch (e) {
+                Ti.API.info(e);
+            }
+        };
+        apiCall.send();
+    };
+    init();
     _.extend($, exports);
 }
 
