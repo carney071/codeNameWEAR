@@ -77,8 +77,6 @@ function Controller() {
     _.extend($, $.__views);
     var init = function() {
         getWeather();
-        win.add(labelTemp);
-        win.open();
         $.index.open();
     };
     var getWeather = function() {
@@ -91,12 +89,8 @@ function Controller() {
                 Ti.API.info("temp_f= " + json.current_observation.temp_f);
                 Ti.API.info("weather=" + json.current_observation.weather);
                 Ti.API.info("Feels Like=" + json.current_observation.feelslike_f);
-                Ti.API.info("Picture" + json.currrent_observation.icon);
                 Ti.API.info("icon" + json.current_observation.icon_url);
-                Ti.UI.createLabel({
-                    text: "json.current_observation.temp_f",
-                    zIndex: "5"
-                });
+                $.temp.text = json.current_observation.temp_f;
             } catch (e) {
                 Ti.API.info(e);
             }
