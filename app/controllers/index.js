@@ -20,11 +20,21 @@ var getWeather = function() {
 			Ti.API.info('temp_f= ' + json.current_observation.temp_f);
 			Ti.API.info('weather=' + json.current_observation.weather);
 			Ti.API.info('Feels Like=' + json.current_observation.feelslike_f);
-			//Ti.API.info('Picture' + json.currrent_observation.icon);
 			Ti.API.info('icon' + json.current_observation.icon_url);
-
-	
-			$.temp.text = json.current_observation.temp_f;
+			Ti.API.info('humidity =' + json.current_observation.relative_humidity);
+			//wind data
+			Ti.API.info('Wind direction =' + json.current_observation.wind_dir);
+			Ti.API.info('humidity =' + json.current_observation.wind_mph);
+			Ti.API.info('humidity =' + json.current_observation.windchill_f);
+	//pushes the data onto the index xml labels/views
+			$.temp.text ="Temp= "+ json.current_observation.temp_f;
+			$.feelsLike.text ="Feels Like= "+ json.current_observation.feelslike_f;
+			$.windMPH.text= 'Wind Speed='+ json.current_observation.wind_mph;
+			$.windDir.text='Wind Direction='+json.current_observation.wind_dir;
+			$.windChill.text='Wind Chill='+json.current_observation.windchill_f;
+			$.humidity.text ="Humidity= "+ json.current_observation.relative_humidity;
+			$.skys.text = json.current_observation.weather;
+			$.weatherIcon.image = json.current_observation.icon_url;
 		} catch(e) {
 			Ti.API.info(e);
 		}
