@@ -52,6 +52,7 @@ var getWeather = function() {
 
 };
 //this is the wear function that takes the current temp and spits out what to wear
+/*
 var wear = function(){
 		if(json.current_observation.temp_f <32 && json.current_observation.feelslike_f < 32)
 		{
@@ -67,5 +68,6 @@ var wear = function(){
 		$.label2.text = "T-shirts and jeans";
 	}
 };
+*/
 
 init();
