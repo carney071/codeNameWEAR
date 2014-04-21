@@ -2,9 +2,9 @@
 	<Window title="Main">
 		<View id="Weather" backgroundColor="#FF1111" width="100%" height="75%" top="0%">
 			<Label id="label1" color="#900" backgroundColor="#FFFFFF" text="Weather" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="7%" width="100%" height="Ti.UI.SIZE" zIndex="3"/>
-			<Label id="temp" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="13%" width="30%" height="10%" zIndex="4">
-			<Label id="feelsLike" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="25%" width="30%" height="10%" zIndex="4">
-			<Label id="skys" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="37%" width="30%" height="10%" zIndex="4">
+			<Label id="temp" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="13%" width="50%" height="10%" zIndex="4">
+			<Label id="feelsLike" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="25%" width="50%" height="10%" zIndex="4">
+			<Label id="skys" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="37%" width="50%" height="10%" zIndex="4">
 			<ImageView id="weatherIcon" width="30%" top="47%"/>
 
 		</View>
