@@ -35,14 +35,38 @@ function Controller() {
         id: "temp",
         color: "#FFFFFF",
         backgroundColor: "#900",
-        text: "temp",
+        text: "",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "15%",
+        top: "13%",
         width: "30%",
         height: "10%",
         zIndex: "4"
     });
     $.__views.Weather.add($.__views.temp);
+    $.__views.feelsLike = Ti.UI.createLabel({
+        id: "feelsLike",
+        color: "#FFFFFF",
+        backgroundColor: "#900",
+        text: "",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        top: "25%",
+        width: "30%",
+        height: "10%",
+        zIndex: "4"
+    });
+    $.__views.Weather.add($.__views.feelsLike);
+    $.__views.skys = Ti.UI.createLabel({
+        id: "skys",
+        color: "#FFFFFF",
+        backgroundColor: "#900",
+        text: "",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        top: "37%",
+        width: "30%",
+        height: "10%",
+        zIndex: "4"
+    });
+    $.__views.Weather.add($.__views.skys);
     $.__views.Clothing = Ti.UI.createView({
         id: "Clothing",
         backgroundColor: "#0066FF",
