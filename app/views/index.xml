@@ -6,6 +6,12 @@
 			<Label id="feelsLike" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="25%" width="50%" height="10%" zIndex="4">
 			<Label id="skys" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="37%" width="50%" height="10%" zIndex="4">
 			<ImageView id="weatherIcon" width="30%" top="47%"/>
+			<Label id="humidity" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="57%" width="50%" height="10%" zIndex="4">
+			<Label id="windMPH" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="67%" width="50%" height="10%" zIndex="4">
+			<Label id="windDir" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="77%" width="50%" height="10%" zIndex="4">
+			<Label id="windChill" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="87%" width="50%" height="10%" zIndex="4">
+
+
 
 		</View>
 		<View id="Clothing" backgroundColor="#0066FF" width="100%" height="25%" top="75%">
