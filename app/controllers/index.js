@@ -6,9 +6,9 @@ var init = function() {
 
 // this is the event listener for the button
 
-//$.button.addEventListener(function(),{
-	//wear();
-//});
+$.button.addEventListener(function(){
+	getWeather();
+});
 
 var getWeather = function() {
 	var args = arguments[0] || {};
@@ -23,6 +23,7 @@ var getWeather = function() {
 			//this takes the data from weather.com and makes it useable
 			var json = JSON.parse(this.responseText);
 			//this is were we are selecting the certain information from weather.com
+			Ti.API.info('Full Location' + json.current_obsercation.display_location.full);
 			Ti.API.info('temp_f= ' + json.current_observation.temp_f);
 			Ti.API.info('weather=' + json.current_observation.weather);
 			Ti.API.info('Feels Like=' + json.current_observation.feelslike_f);
@@ -41,6 +42,7 @@ var getWeather = function() {
 			$.humidity.text ="Humidity= "+ json.current_observation.relative_humidity;
 			$.skys.text = json.current_observation.weather;
 			$.weatherIcon.image = json.current_observation.icon_url;
+			wear(json.current_observation);
 		} catch(e) {
 			Ti.API.info(e);
 		}
@@ -51,23 +53,25 @@ var getWeather = function() {
 	apiCall.send();
 
 };
+
+
 //this is the wear function that takes the current temp and spits out what to wear
-/*
-var wear = function(){
-		if(json.current_observation.temp_f <32 && json.current_observation.feelslike_f < 32)
+
+var wear = function(data){
+		if(data.temp_f <32 && data.feelslike_f < 32)
 		{
 			$.label2.text = "Wear a winter jacket and pants";
 		}
-	else if(json.current_observation.temp_f >33 && json.current_observation.temp_f < 60 && json.current_observation.feelslike_f > 33 && json.current_observation.feelslike_f < 60 )
+	else if(data.temp_f >33 && data.temp_f < 60 && data.feelslike_f > 33 && data.feelslike_f < 60 )
 	{
 		$.label2.text = "Light jacket and pants";
 	}
 	
-	else if(json.current_observation.temp_f > 61 && json.current_observation.temp_f < 75 && json.current_observation.feelslike_f > 61 && json.current_observation.feelslike_f < 75)
+	else if(data.temp_f > 61 && data.temp_f < 75 && data.feelslike_f > 61 && data.feelslike_f < 75)
 	{
 		$.label2.text = "T-shirts and jeans";
 	}
 };
-*/
+
 
 init();

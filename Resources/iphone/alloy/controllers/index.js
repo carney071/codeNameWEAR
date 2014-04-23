@@ -178,7 +178,7 @@ function Controller() {
                 Ti.API.info("Feels Like=" + json.current_observation.feelslike_f);
                 Ti.API.info("icon" + json.current_observation.icon_url);
                 Ti.API.info("humidity =" + json.current_observation.relative_humidity);
-                Ti.API.info("Wind direction =" + json.current_observation.wind_dir);
+                Ti.API.info("Wind direction =" + json.current_observation.wind_dir + "mph");
                 Ti.API.info("humidity =" + json.current_observation.wind_mph);
                 Ti.API.info("humidity =" + json.current_observation.windchill_f);
                 $.temp.text = "Temp= " + json.current_observation.temp_f;
