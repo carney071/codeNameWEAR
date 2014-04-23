@@ -223,7 +223,7 @@ function Controller() {
         apiCall.send();
     };
     var wear = function(data) {
-        32 > data.temp_f && 32 > data.feelslike_f ? $.toWear.text = "Wear a winter jacket and pants" : data.temp_f > 33 && 60 > data.temp_f && data.feelslike_f > 33 && 60 > data.feelslike_f ? $.toWear.text = "Light jacket and pants" : data.temp_f > 61 && 75 > data.temp_f && data.feelslike_f > 61 && 75 > data.feelslike_f ? $.toWear.text = "T-shirts and jeans" : data.temp_f > 76 && data.feelslike_f > 76 && ($.toWear.text = "Shorts and no Shirts");
+        $.toWear.text = data.feelslike_f > 16 && 37.9 > data.feelslike_f ? "Wear a winter jacket and pants plus socks, light hat." : data.feelslike_f > 15.9 && -10 > data.feelslike_f ? "Heavy winter jacket, sweatshirt or fleese underneith jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style." : data.feelslike_f > 38 && 60.9 > data.feelslike_f ? "Light jacket and pants" : data.feelslike_f > 61 && 74.9 > data.feelslike_f ? "T-shirts and jeans" : data.feelslike_f > 75 && 89.9 > data.feelslike_f ? "Shorts and T-shirt" : data.feelslike_f > 90 && 110 > data.feelslike_f ? "Light shirt in both material and color, light shorts, and probably sunscreen" : "Stay indoors as often as possible";
     };
     init();
     _.extend($, exports);
