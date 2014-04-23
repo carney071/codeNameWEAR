@@ -67,7 +67,7 @@ var wear = function(data) {
 		$.toWear.text = "Light jacket and pants";
 	} 
 	else if (data.feelslike_f > 61 && data.feelslike_f < 74.9) {
-		$.toWear.text = "T-shirts and jeans";
+		$.toWear.text = "T-shirt and jeans";
 	} 
 	else if (data.feelslike_f > 75 && data.feelslike_f < 89.9) {
 		$.toWear.text = "Shorts and T-shirt";
