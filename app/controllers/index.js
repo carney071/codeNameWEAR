@@ -53,6 +53,9 @@ var getWeather = function() {
 	apiCall.send();
 
 };
+//grabbing the current location
+var cLocation = Titanium.Geolocation(accuracy_low);
+
 
 //this is the wear function that takes the current temp and spits out what to wear
 
