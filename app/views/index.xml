@@ -2,16 +2,16 @@
 	<Window title="Main">
 		<View id="Weather" backgroundColor="#FF1111" width="100%" height="75%" top="0%">
 			<Label id="label1" color="#900" backgroundColor="#FFFFFF" text="Weather" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="7%" width="100%" height="Ti.UI.SIZE" zIndex="3"/>
+			<Label id="Location" color="#900" backgroundColor="#FFFFFF" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="13%" width="100%" height="Ti.UI.SIZE" zIndex="3"/>
 			
-			
-			<Label id="skys" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="15%" width="45%" height="10%" zIndex="4" left="10">
-			<ImageView id="weatherIcon" width="20%" top="13%" right="50" height="15%" />
-			<Label id="temp" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="30%" width="45%" height="10%" zIndex="4" left="10">
-			<Label id="feelsLike" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="30%" width="45%" height="10%" zIndex="4" right="10">
-			<Label id="humidity" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="45%" width="45%" height="10%" zIndex="4" left="10">
-			<Label id="windMPH" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="45%" width="45%" height="10%" zIndex="4" right="10">
-			<Label id="windDir" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="60%" width="45%" height="10%" zIndex="4" left="10">
-			<Label id="windChill" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="60%" width="45%" height="10%" zIndex="4" right="10">
+			<Label id="skys" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="20%" width="45%" height="10%" zIndex="4" left="10">
+			<ImageView id="weatherIcon" width="20%" top="18%" right="50" height="15%" />
+			<Label id="temp" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="35%" width="45%" height="10%" zIndex="4" left="10">
+			<Label id="feelsLike" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="35%" width="45%" height="10%" zIndex="4" right="10">
+			<Label id="humidity" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="50%" width="45%" height="10%" zIndex="4" left="10">
+			<Label id="windMPH" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="50%" width="45%" height="10%" zIndex="4" right="10">
+			<Label id="windDir" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="65%" width="45%" height="10%" zIndex="4" left="10">
+			<Label id="windChill" color="#FFFFFF" backgroundColor="#900" text="" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" top="65%" width="45%" height="10%" zIndex="4" right="10">
 
 
 
