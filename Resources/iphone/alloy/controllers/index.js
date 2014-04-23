@@ -31,8 +31,8 @@ function Controller() {
         zIndex: "3"
     });
     $.__views.Weather.add($.__views.label1);
-    $.__views.Location = Ti.UI.createLabel({
-        id: "Location",
+    $.__views.city = Ti.UI.createLabel({
+        id: "city",
         color: "#900",
         backgroundColor: "#FFFFFF",
         text: "",
@@ -42,7 +42,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         zIndex: "3"
     });
-    $.__views.Weather.add($.__views.Location);
+    $.__views.Weather.add($.__views.city);
     $.__views.skys = Ti.UI.createLabel({
         id: "skys",
         color: "#FFFFFF",
@@ -185,6 +185,7 @@ function Controller() {
         apiCall.onload = function() {
             try {
                 var json = JSON.parse(this.responseText);
+                Ti.API.info("Full Location" + json.current_observation.display_location.full);
                 Ti.API.info("temp_f= " + json.current_observation.temp_f);
                 Ti.API.info("weather=" + json.current_observation.weather);
                 Ti.API.info("Feels Like=" + json.current_observation.feelslike_f);
@@ -193,6 +194,7 @@ function Controller() {
                 Ti.API.info("Wind direction =" + json.current_observation.wind_dir + "mph");
                 Ti.API.info("humidity =" + json.current_observation.wind_mph);
                 Ti.API.info("humidity =" + json.current_observation.windchill_f);
+                $.city.text = json.current_observation.display_location.full;
                 $.temp.text = "Temp= " + json.current_observation.temp_f;
                 $.feelsLike.text = "Feels Like= " + json.current_observation.feelslike_f;
                 $.windMPH.text = "Wind Speed=" + json.current_observation.wind_mph;
@@ -201,6 +203,7 @@ function Controller() {
                 $.humidity.text = "Humidity= " + json.current_observation.relative_humidity;
                 $.skys.text = json.current_observation.weather;
                 $.weatherIcon.image = json.current_observation.icon_url;
+                wear(json.current_observation);
             } catch (e) {
                 Ti.API.info(e);
             }

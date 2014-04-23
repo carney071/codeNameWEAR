@@ -6,9 +6,9 @@ var init = function() {
 
 // this is the event listener for the button
 
-$.button.addEventListener(function(){
-	getWeather();
-});
+//$.button.addEventListener(function(){
+	//getWeather();
+//});
 
 var getWeather = function() {
 	var args = arguments[0] || {};
@@ -23,7 +23,7 @@ var getWeather = function() {
 			//this takes the data from weather.com and makes it useable
 			var json = JSON.parse(this.responseText);
 			//this is were we are selecting the certain information from weather.com
-			Ti.API.info('Full Location' + json.current_obsercation.display_location.full);
+			Ti.API.info('Full Location' + json.current_observation.display_location.full);
 			Ti.API.info('temp_f= ' + json.current_observation.temp_f);
 			Ti.API.info('weather=' + json.current_observation.weather);
 			Ti.API.info('Feels Like=' + json.current_observation.feelslike_f);
@@ -34,6 +34,7 @@ var getWeather = function() {
 			Ti.API.info('humidity =' + json.current_observation.wind_mph);
 			Ti.API.info('humidity =' + json.current_observation.windchill_f);
 	//pushes the data onto the index xml labels/views
+			$.city.text = json.current_observation.display_location.full;
 			$.temp.text ="Temp= "+ json.current_observation.temp_f;
 			$.feelsLike.text ="Feels Like= "+ json.current_observation.feelslike_f;
 			$.windMPH.text= 'Wind Speed='+ json.current_observation.wind_mph;
@@ -56,7 +57,7 @@ var getWeather = function() {
 
 
 //this is the wear function that takes the current temp and spits out what to wear
-
+/*
 var wear = function(data){
 		if(data.temp_f <32 && data.feelslike_f < 32)
 		{
@@ -73,5 +74,5 @@ var wear = function(data){
 	}
 };
 
-
+*/
 init();
