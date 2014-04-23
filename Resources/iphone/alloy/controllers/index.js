@@ -31,13 +31,25 @@ function Controller() {
         zIndex: "3"
     });
     $.__views.Weather.add($.__views.label1);
+    $.__views.Location = Ti.UI.createLabel({
+        id: "Location",
+        color: "#900",
+        backgroundColor: "#FFFFFF",
+        text: "",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        top: "13%",
+        width: "100%",
+        height: Ti.UI.SIZE,
+        zIndex: "3"
+    });
+    $.__views.Weather.add($.__views.Location);
     $.__views.skys = Ti.UI.createLabel({
         id: "skys",
         color: "#FFFFFF",
         backgroundColor: "#900",
         text: "",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "15%",
+        top: "20%",
         width: "45%",
         height: "10%",
         zIndex: "4",
@@ -47,7 +59,7 @@ function Controller() {
     $.__views.weatherIcon = Ti.UI.createImageView({
         id: "weatherIcon",
         width: "20%",
-        top: "13%",
+        top: "18%",
         right: "50",
         height: "15%"
     });
@@ -58,7 +70,7 @@ function Controller() {
         backgroundColor: "#900",
         text: "",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "30%",
+        top: "35%",
         width: "45%",
         height: "10%",
         zIndex: "4",
@@ -71,7 +83,7 @@ function Controller() {
         backgroundColor: "#900",
         text: "",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "30%",
+        top: "35%",
         width: "45%",
         height: "10%",
         zIndex: "4",
@@ -84,7 +96,7 @@ function Controller() {
         backgroundColor: "#900",
         text: "",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "45%",
+        top: "50%",
         width: "45%",
         height: "10%",
         zIndex: "4",
@@ -97,7 +109,7 @@ function Controller() {
         backgroundColor: "#900",
         text: "",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "45%",
+        top: "50%",
         width: "45%",
         height: "10%",
         zIndex: "4",
@@ -110,7 +122,7 @@ function Controller() {
         backgroundColor: "#900",
         text: "",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "60%",
+        top: "65%",
         width: "45%",
         height: "10%",
         zIndex: "4",
@@ -123,7 +135,7 @@ function Controller() {
         backgroundColor: "#900",
         text: "",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "60%",
+        top: "65%",
         width: "45%",
         height: "10%",
         zIndex: "4",
