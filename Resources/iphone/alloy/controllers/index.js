@@ -15,7 +15,7 @@ function Controller() {
         id: "Weather",
         backgroundColor: "#FF1111",
         width: "100%",
-        height: "75%",
+        height: "65%",
         top: "0%"
     });
     $.__views.index.add($.__views.Weather);
@@ -49,7 +49,7 @@ function Controller() {
         backgroundColor: "#900",
         text: "",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "20%",
+        top: "22%",
         width: "45%",
         height: "10%",
         zIndex: "4",
@@ -59,7 +59,7 @@ function Controller() {
     $.__views.weatherIcon = Ti.UI.createImageView({
         id: "weatherIcon",
         width: "20%",
-        top: "18%",
+        top: "20%",
         right: "50",
         height: "15%"
     });
@@ -146,15 +146,15 @@ function Controller() {
         id: "Clothing",
         backgroundColor: "#0066FF",
         width: "100%",
-        height: "25%",
-        top: "75%"
+        height: "35%",
+        top: "65%"
     });
     $.__views.index.add($.__views.Clothing);
     $.__views.label2 = Ti.UI.createLabel({
         id: "label2",
         color: "#0066FF",
         backgroundColor: "#FFFFFF",
-        text: "Comfy Clothing",
+        text: "What you should wear",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         top: "5%",
         width: "100%",
@@ -162,12 +162,24 @@ function Controller() {
         zIndex: "2"
     });
     $.__views.Clothing.add($.__views.label2);
+    $.__views.toWear = Ti.UI.createLabel({
+        id: "toWear",
+        color: "#FFFFFF",
+        backgroundColor: "#1100FF",
+        text: "",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        top: "40%",
+        width: "65%",
+        height: "40%",
+        zIndex: "4"
+    });
+    $.__views.Clothing.add($.__views.toWear);
     $.__views.button = Ti.UI.createButton({
         id: "button",
-        title: "What should I wear?",
-        top: "40%",
+        title: "Refresh",
+        top: "20%",
         width: "50%",
-        height: "50",
+        height: "30",
         color: "#0066FF",
         backgroundColor: "1100FF"
     });
