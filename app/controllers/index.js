@@ -4,12 +4,11 @@ var init = function() {
 
 };
 
-// this is the event listener for the button
 
-//$.button.addEventListener(function(){
-	//getWeather();
-//});
-
+	// this is the event listener for the button
+	//$.button.addEventListener(function() {
+		//getWeather();
+	//});
 var getWeather = function() {
 	var args = arguments[0] || {};
 
@@ -30,17 +29,17 @@ var getWeather = function() {
 			Ti.API.info('icon' + json.current_observation.icon_url);
 			Ti.API.info('humidity =' + json.current_observation.relative_humidity);
 			//wind data
-			Ti.API.info('Wind direction =' + json.current_observation.wind_dir+'mph');
+			Ti.API.info('Wind direction =' + json.current_observation.wind_dir + 'mph');
 			Ti.API.info('humidity =' + json.current_observation.wind_mph);
 			Ti.API.info('humidity =' + json.current_observation.windchill_f);
-	//pushes the data onto the index xml labels/views
+			//pushes the data onto the index xml labels/views
 			$.city.text = json.current_observation.display_location.full;
-			$.temp.text ="Temp= "+ json.current_observation.temp_f;
-			$.feelsLike.text ="Feels Like= "+ json.current_observation.feelslike_f;
-			$.windMPH.text= 'Wind Speed='+ json.current_observation.wind_mph;
-			$.windDir.text='Wind Direction='+json.current_observation.wind_dir;
-			$.windChill.text='Wind Chill='+json.current_observation.windchill_f;
-			$.humidity.text ="Humidity= "+ json.current_observation.relative_humidity;
+			$.temp.text = "Temp= " + json.current_observation.temp_f;
+			$.feelsLike.text = "Feels Like= " + json.current_observation.feelslike_f;
+			$.windMPH.text = 'Wind Speed=' + json.current_observation.wind_mph;
+			$.windDir.text = 'Wind Direction=' + json.current_observation.wind_dir;
+			$.windChill.text = 'Wind Chill=' + json.current_observation.windchill_f;
+			$.humidity.text = "Humidity= " + json.current_observation.relative_humidity;
 			$.skys.text = json.current_observation.weather;
 			$.weatherIcon.image = json.current_observation.icon_url;
 			wear(json.current_observation);
@@ -55,24 +54,18 @@ var getWeather = function() {
 
 };
 
-
 //this is the wear function that takes the current temp and spits out what to wear
-/*
-var wear = function(data){
-		if(data.temp_f <32 && data.feelslike_f < 32)
-		{
-			$.label2.text = "Wear a winter jacket and pants";
-		}
-	else if(data.temp_f >33 && data.temp_f < 60 && data.feelslike_f > 33 && data.feelslike_f < 60 )
-	{
-		$.label2.text = "Light jacket and pants";
-	}
-	
-	else if(data.temp_f > 61 && data.temp_f < 75 && data.feelslike_f > 61 && data.feelslike_f < 75)
-	{
-		$.label2.text = "T-shirts and jeans";
+
+var wear = function(data) {
+	if (data.temp_f < 32 && data.feelslike_f < 32) {
+		$.toWear.text = "Wear a winter jacket and pants";
+	} else if (data.temp_f > 33 && data.temp_f < 60 && data.feelslike_f > 33 && data.feelslike_f < 60) {
+		$.toWear.text = "Light jacket and pants";
+	} else if (data.temp_f > 61 && data.temp_f < 75 && data.feelslike_f > 61 && data.feelslike_f < 75) {
+		$.toWear.text = "T-shirts and jeans";
+	} else if (data.temp_f > 76 && data.feelslike_f > 76) {
+		$.toWear.text = "Shorts and no Shirts";
 	}
 };
 
-*/
 init();

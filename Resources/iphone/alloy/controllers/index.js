@@ -210,6 +210,9 @@ function Controller() {
         };
         apiCall.send();
     };
+    var wear = function(data) {
+        32 > data.temp_f && 32 > data.feelslike_f ? $.label2.text = "Wear a winter jacket and pants" : data.temp_f > 33 && 60 > data.temp_f && data.feelslike_f > 33 && 60 > data.feelslike_f ? $.label2.text = "Light jacket and pants" : data.temp_f > 61 && 75 > data.temp_f && data.feelslike_f > 61 && 75 > data.feelslike_f ? $.label2.text = "T-shirts and jeans" : data.temp_f > 76 && data.feelslike_f > 76 && ($.label2.text = "Shorts and no Shirts");
+    };
     init();
     _.extend($, exports);
 }
