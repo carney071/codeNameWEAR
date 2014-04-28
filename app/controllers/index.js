@@ -14,7 +14,7 @@ var getWeather = function() {
 
 	//getting data
 	var apiCall = Ti.Network.createHTTPClient();
-	apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
+	apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/geolookup/q/37.776289,-122.395234.json");
 
 	//on a successful load of data
 	apiCall.onload = function() {
@@ -54,8 +54,18 @@ var getWeather = function() {
 
 };
 //grabbing the current location
-var cLocation = Titanium.Geolocation(accuracy_low);
-
+if (Ti.Geolocation.locationServicesEnabled) {
+    Titanium.Geolocation.purpose = 'Get Current Location';
+    Titanium.Geolocation.getCurrentPosition(function(e) {
+        if (e.error) {
+            Ti.API.error('Error: ' + e.error);
+        } else {
+            Ti.API.info(e.coords);
+        }
+    });
+} else {
+    alert('Please enable location services');
+}
 
 //this is the wear function that takes the current temp and spits out what to wear
 

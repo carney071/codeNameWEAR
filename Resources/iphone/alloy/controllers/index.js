@@ -193,7 +193,7 @@ function Controller() {
     var getWeather = function() {
         arguments[0] || {};
         var apiCall = Ti.Network.createHTTPClient();
-        apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/conditions/q/CA/San_Francisco.json");
+        apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/geolookup/q/37.776289,-122.395234.json");
         apiCall.onload = function() {
             try {
                 var json = JSON.parse(this.responseText);
@@ -222,7 +222,12 @@ function Controller() {
         };
         apiCall.send();
     };
-    Titanium.Geolocation(accuracy_low);
+    if (Ti.Geolocation.locationServicesEnabled) {
+        Titanium.Geolocation.purpose = "Get Current Location";
+        Titanium.Geolocation.getCurrentPosition(function(e) {
+            e.error ? Ti.API.error("Error: " + e.error) : Ti.API.info(e.coords);
+        });
+    } else alert("Please enable location services");
     var wear = function(data) {
         32 > data.temp_f && 32 > data.feelslike_f ? $.toWear.text = "Wear a winter jacket and pants" : data.temp_f > 33 && 60 > data.temp_f && data.feelslike_f > 33 && 60 > data.feelslike_f ? $.toWear.text = "Light jacket and pants" : data.temp_f > 61 && 75 > data.temp_f && data.feelslike_f > 61 && 75 > data.feelslike_f ? $.toWear.text = "T-shirts and jeans" : data.temp_f > 76 && data.feelslike_f > 76 && ($.toWear.text = "Shorts and no Shirts");
     };
