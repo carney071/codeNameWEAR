@@ -1,20 +1,23 @@
 var init = function() {
-	getWeather();
+	
+	geoLocation();
+	//getWeather();
 	$.index.open();
+	
 
 };
 
 
 	// this is the event listener for the button
-	//$.button.addEventListener(function() {
-		//getWeather();
-	//});
-var getWeather = function() {
+$.refresh.addEventListener('click',function(){
+	geoLocation();
+});
+var getWeather = function(coords) {
 	var args = arguments[0] || {};
 
 	//getting data
 	var apiCall = Ti.Network.createHTTPClient();
-	apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/geolookup/q/37.776289,-122.395234.json");
+	apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/conditions/q/"+coords.latitude +","+coords.longitude+".json");
 
 	//on a successful load of data
 	apiCall.onload = function() {
@@ -54,6 +57,7 @@ var getWeather = function() {
 
 };
 //grabbing the current location
+var geoLocation = function(){
 if (Ti.Geolocation.locationServicesEnabled) {
     Titanium.Geolocation.purpose = 'Get Current Location';
     Titanium.Geolocation.getCurrentPosition(function(e) {
@@ -61,35 +65,27 @@ if (Ti.Geolocation.locationServicesEnabled) {
             Ti.API.error('Error: ' + e.error);
         } else {
             Ti.API.info(e.coords);
+            getWeather(e.coords);
+            Ti.API.info('lat'+e.coords.latitude);
+            Ti.API.info('long'+e.coords.longitude);
         }
     });
 } else {
     alert('Please enable location services');
 }
+};
 
 //this is the wear function that takes the current temp and spits out what to wear
 
 var wear = function(data) {
-	if (data.feelslike_f > 16 && data.feelslike_f < 37.9) {
-		$.toWear.text = "Wear a winter jacket and pants plus socks, light hat.";
-	} 
-	else if (data.feelslike_f > 15.9 && data.feelslike_f < -10) {
-		$.toWear.text = "Heavy winter jacket, sweatshirt or fleese underneith jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style.";
-	}
-	else if ( data.feelslike_f > 38 && data.feelslike_f < 60.9) {
+	if (data.temp_f < 32 && data.feelslike_f < 32) {
+		$.toWear.text = "Wear a winter jacket and pants";
+	} else if (data.temp_f > 33 && data.temp_f < 60 && data.feelslike_f > 33 && data.feelslike_f < 60) {
 		$.toWear.text = "Light jacket and pants";
-	} 
-	else if (data.feelslike_f > 61 && data.feelslike_f < 74.9) {
-		$.toWear.text = "T-shirt and jeans";
-	} 
-	else if (data.feelslike_f > 75 && data.feelslike_f < 89.9) {
-		$.toWear.text = "Shorts and T-shirt";
-	}
-	else if (data.feelslike_f > 90 && data.feelslike_f < 110) {
-		$.toWear.text = "Light shirt in both material and color, light shorts, and probably sunscreen";
-	}
-	else {
-		$.toWear.text = "Stay indoors as often as possible";
+	} else if (data.temp_f > 61 && data.temp_f < 75 && data.feelslike_f > 61 && data.feelslike_f < 75) {
+		$.toWear.text = "T-shirts and jeans";
+	} else if (data.temp_f > 76 && data.feelslike_f > 76) {
+		$.toWear.text = "Shorts and no Shirts";
 	}
 };
 

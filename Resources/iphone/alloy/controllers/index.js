@@ -174,8 +174,8 @@ function Controller() {
         zIndex: "4"
     });
     $.__views.Clothing.add($.__views.toWear);
-    $.__views.button = Ti.UI.createButton({
-        id: "button",
+    $.__views.refresh = Ti.UI.createButton({
+        id: "refresh",
         title: "Refresh",
         top: "20%",
         width: "50%",
@@ -183,17 +183,20 @@ function Controller() {
         color: "#0066FF",
         backgroundColor: "1100FF"
     });
-    $.__views.Clothing.add($.__views.button);
+    $.__views.Clothing.add($.__views.refresh);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var init = function() {
-        getWeather();
+        geoLocation();
         $.index.open();
     };
-    var getWeather = function() {
+    $.refresh.addEventListener("click", function() {
+        geoLocation();
+    });
+    var getWeather = function(coords) {
         arguments[0] || {};
         var apiCall = Ti.Network.createHTTPClient();
-        apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/geolookup/q/37.776289,-122.395234.json");
+        apiCall.open("GET", "http://api.wunderground.com/api/0686a531a29abea6/conditions/q/" + coords.latitude + "," + coords.longitude + ".json");
         apiCall.onload = function() {
             try {
                 var json = JSON.parse(this.responseText);
@@ -222,14 +225,21 @@ function Controller() {
         };
         apiCall.send();
     };
-    if (Ti.Geolocation.locationServicesEnabled) {
-        Titanium.Geolocation.purpose = "Get Current Location";
-        Titanium.Geolocation.getCurrentPosition(function(e) {
-            e.error ? Ti.API.error("Error: " + e.error) : Ti.API.info(e.coords);
-        });
-    } else alert("Please enable location services");
+    var geoLocation = function() {
+        if (Ti.Geolocation.locationServicesEnabled) {
+            Titanium.Geolocation.purpose = "Get Current Location";
+            Titanium.Geolocation.getCurrentPosition(function(e) {
+                if (e.error) Ti.API.error("Error: " + e.error); else {
+                    Ti.API.info(e.coords);
+                    getWeather(e.coords);
+                    Ti.API.info("lat" + e.coords.latitude);
+                    Ti.API.info("long" + e.coords.longitude);
+                }
+            });
+        } else alert("Please enable location services");
+    };
     var wear = function(data) {
-        $.toWear.text = data.feelslike_f > 16 && 37.9 > data.feelslike_f ? "Wear a winter jacket and pants plus socks, light hat." : data.feelslike_f > 15.9 && -10 > data.feelslike_f ? "Heavy winter jacket, sweatshirt or fleese underneith jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style." : data.feelslike_f > 38 && 60.9 > data.feelslike_f ? "Light jacket and pants" : data.feelslike_f > 61 && 74.9 > data.feelslike_f ? "T-shirt and jeans" : data.feelslike_f > 75 && 89.9 > data.feelslike_f ? "Shorts and T-shirt" : data.feelslike_f > 90 && 110 > data.feelslike_f ? "Light shirt in both material and color, light shorts, and probably sunscreen" : "Stay indoors as often as possible";
+        32 > data.temp_f && 32 > data.feelslike_f ? $.toWear.text = "Wear a winter jacket and pants" : data.temp_f > 33 && 60 > data.temp_f && data.feelslike_f > 33 && 60 > data.feelslike_f ? $.toWear.text = "Light jacket and pants" : data.temp_f > 61 && 75 > data.temp_f && data.feelslike_f > 61 && 75 > data.feelslike_f ? $.toWear.text = "T-shirts and jeans" : data.temp_f > 76 && data.feelslike_f > 76 && ($.toWear.text = "Shorts and no Shirts");
     };
     init();
     _.extend($, exports);
