@@ -229,7 +229,7 @@ function Controller() {
         });
     } else alert("Please enable location services");
     var wear = function(data) {
-        $.toWear.text = data.feelslike_f > 16 && 37.9 > data.feelslike_f ? "Wear a winter jacket and pants plus socks, light hat." : data.feelslike_f > 15.9 && -10 > data.feelslike_f ? "Heavy winter jacket, sweatshirt or fleese underneith jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style." : data.feelslike_f > 38 && 60.9 > data.feelslike_f ? "Light jacket and pants" : data.feelslike_f > 61 && 74.9 > data.feelslike_f ? "T-shirts and jeans" : data.feelslike_f > 75 && 89.9 > data.feelslike_f ? "Shorts and T-shirt" : data.feelslike_f > 90 && 110 > data.feelslike_f ? "Light shirt in both material and color, light shorts, and probably sunscreen" : "Stay indoors as often as possible";
+        $.toWear.text = data.feelslike_f > 16 && 37.9 > data.feelslike_f ? "Wear a winter jacket and pants plus socks, light hat." : data.feelslike_f > 15.9 && -10 > data.feelslike_f ? "Heavy winter jacket, sweatshirt or fleese underneith jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style." : data.feelslike_f > 38 && 60.9 > data.feelslike_f ? "Light jacket and pants" : data.feelslike_f > 61 && 74.9 > data.feelslike_f ? "T-shirt and jeans" : data.feelslike_f > 75 && 89.9 > data.feelslike_f ? "Shorts and T-shirt" : data.feelslike_f > 90 && 110 > data.feelslike_f ? "Light shirt in both material and color, light shorts, and probably sunscreen" : "Stay indoors as often as possible";
     };
     init();
     _.extend($, exports);
