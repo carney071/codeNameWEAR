@@ -70,14 +70,26 @@ if (Ti.Geolocation.locationServicesEnabled) {
 //this is the wear function that takes the current temp and spits out what to wear
 
 var wear = function(data) {
-	if (data.temp_f < 32 && data.feelslike_f < 32) {
-		$.toWear.text = "Wear a winter jacket and pants";
-	} else if (data.temp_f > 33 && data.temp_f < 60 && data.feelslike_f > 33 && data.feelslike_f < 60) {
+	if (data.feelslike_f > 16 && data.feelslike_f < 37.9) {
+		$.toWear.text = "Wear a winter jacket and pants plus socks, light hat.";
+	} 
+	else if (data.feelslike_f > 15.9 && data.feelslike_f < -10) {
+		$.toWear.text = "Heavy winter jacket, sweatshirt or fleese underneith jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style.";
+	}
+	else if ( data.feelslike_f > 38 && data.feelslike_f < 60.9) {
 		$.toWear.text = "Light jacket and pants";
-	} else if (data.temp_f > 61 && data.temp_f < 75 && data.feelslike_f > 61 && data.feelslike_f < 75) {
-		$.toWear.text = "T-shirts and jeans";
-	} else if (data.temp_f > 76 && data.feelslike_f > 76) {
-		$.toWear.text = "Shorts and no Shirts";
+	} 
+	else if (data.feelslike_f > 61 && data.feelslike_f < 74.9) {
+		$.toWear.text = "T-shirt and jeans";
+	} 
+	else if (data.feelslike_f > 75 && data.feelslike_f < 89.9) {
+		$.toWear.text = "Shorts and T-shirt";
+	}
+	else if (data.feelslike_f > 90 && data.feelslike_f < 110) {
+		$.toWear.text = "Light shirt in both material and color, light shorts, and probably sunscreen";
+	}
+	else {
+		$.toWear.text = "Stay indoors as often as possible";
 	}
 };
 
