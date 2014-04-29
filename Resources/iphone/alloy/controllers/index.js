@@ -58,8 +58,8 @@ function Controller() {
     $.__views.Weather.add($.__views.skys);
     $.__views.weatherIcon = Ti.UI.createImageView({
         id: "weatherIcon",
-        width: "20%",
-        top: "20%",
+        width: "18%",
+        top: "19%",
         right: "50",
         height: "15%"
     });
@@ -124,7 +124,7 @@ function Controller() {
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         top: "65%",
         width: "45%",
-        height: "10%",
+        height: "15%",
         zIndex: "4",
         left: "10"
     });
@@ -137,7 +137,7 @@ function Controller() {
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         top: "65%",
         width: "45%",
-        height: "10%",
+        height: "15%",
         zIndex: "4",
         right: "10"
     });
@@ -239,7 +239,7 @@ function Controller() {
         } else alert("Please enable location services");
     };
     var wear = function(data) {
-        32 > data.temp_f && 32 > data.feelslike_f ? $.toWear.text = "Wear a winter jacket and pants" : data.temp_f > 33 && 60 > data.temp_f && data.feelslike_f > 33 && 60 > data.feelslike_f ? $.toWear.text = "Light jacket and pants" : data.temp_f > 61 && 75 > data.temp_f && data.feelslike_f > 61 && 75 > data.feelslike_f ? $.toWear.text = "T-shirts and jeans" : data.temp_f > 76 && data.feelslike_f > 76 && ($.toWear.text = "Shorts and no Shirts");
+        $.toWear.text = data.feelslike_f > 16 && 34.9 > data.feelslike_f ? "Wear a winter jacket and pants plus socks, light hat." : data.feelslike_f > 15.9 && -15 > data.feelslike_f ? "Heavy winter jacket, sweatshirt or fleece underneath jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style." : data.feelslike_f > 35 && 45.9 > data.feelslike_f ? "Light jacket and pants" : data.feelslike_f > 46 && 60.9 > data.feelslike_f ? "Sweatshirt and pants. Longsleeve shirt if you're feeling brave" : data.feelslike_f > 61 && 74.9 > data.feelslike_f ? "T-shirt and jeans. If you're staying out past sundown, probably bring a sweater" : data.feelslike_f > 75 && 89.9 > data.feelslike_f ? "Shorts and T-shirt" : data.feelslike_f > 90 && 110 > data.feelslike_f ? "Light shirt in both material and color, light shorts, and probably sunscreen" : "Stay indoors as often as possible";
     };
     init();
     _.extend($, exports);
