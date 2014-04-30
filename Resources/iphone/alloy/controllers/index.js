@@ -55,8 +55,14 @@ function Controller() {
     });
     $.__views.Weather.add($.__views.skys);
     $.__views.weatherIcon = Ti.UI.createImageView({
+<<<<<<< HEAD
         width: "20%",
         top: "20%",
+=======
+        id: "weatherIcon",
+        width: "18%",
+        top: "19%",
+>>>>>>> b06364ffa231cef5b1824a08c8e741d7a203f34e
         right: "50",
         height: "15%",
         id: "weatherIcon"
@@ -116,7 +122,7 @@ function Controller() {
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         top: "65%",
         width: "45%",
-        height: "10%",
+        height: "15%",
         zIndex: "4",
         left: "10",
         id: "windDir"
@@ -128,7 +134,7 @@ function Controller() {
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         top: "50%",
         width: "45%",
-        height: "10%",
+        height: "15%",
         zIndex: "4",
         right: "10",
         id: "windChill"
@@ -231,7 +237,11 @@ function Controller() {
         } else alert("Please enable location services");
     };
     var wear = function(data) {
+<<<<<<< HEAD
         $.toWear.text = data.feelslike_f > 16 && 37.9 > data.feelslike_f ? "Wear a winter jacket and pants plus socks, light hat." : data.feelslike_f > 15.9 && -10 > data.feelslike_f ? "Heavy winter jacket, sweatshirt or fleese underneith jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style." : data.feelslike_f > 38 && 60.9 > data.feelslike_f ? "Light jacket and pants" : data.feelslike_f > 61 && 74.9 > data.feelslike_f ? "T-shirt and jeans" : data.feelslike_f > 75 && 89.9 > data.feelslike_f ? "Shorts and T-shirt" : data.feelslike_f > 90 && 110 > data.feelslike_f ? "Light shirt in both material and color, light shorts, and probably sunscreen" : "Stay indoors as often as possible";
+=======
+        $.toWear.text = data.feelslike_f > 16 && 34.9 > data.feelslike_f ? "Wear a winter jacket and pants plus socks, light hat." : data.feelslike_f > 15.9 && -15 > data.feelslike_f ? "Heavy winter jacket, sweatshirt or fleece underneath jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style." : data.feelslike_f > 35 && 45.9 > data.feelslike_f ? "Light jacket and pants" : data.feelslike_f > 46 && 60.9 > data.feelslike_f ? "Sweatshirt and pants. Longsleeve shirt if you're feeling brave" : data.feelslike_f > 61 && 74.9 > data.feelslike_f ? "T-shirt and jeans. If you're staying out past sundown, probably bring a sweater" : data.feelslike_f > 75 && 89.9 > data.feelslike_f ? "Shorts and T-shirt" : data.feelslike_f > 90 && 110 > data.feelslike_f ? "Light shirt in both material and color, light shorts, and probably sunscreen" : "Stay indoors as often as possible";
+>>>>>>> b06364ffa231cef5b1824a08c8e741d7a203f34e
     };
     init();
     _.extend($, exports);

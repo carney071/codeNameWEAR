@@ -1,5 +1,6 @@
 <Alloy>
 	<Window title="Main">
+
 		<View id="Weather" >
 			<Label id="label1" />
 			<Label id="city"/>
@@ -16,6 +17,7 @@
 			<Label id="label2"/>
 			<Label id="toWear"/>
 			<Button id="refresh"  title="Refresh" />
+
 		</View>
 	</Window>
 </Alloy>

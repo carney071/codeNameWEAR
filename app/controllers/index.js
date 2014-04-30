@@ -78,17 +78,20 @@ if (Ti.Geolocation.locationServicesEnabled) {
 //this is the wear function that takes the current temp and spits out what to wear
 
 var wear = function(data) {
-	if (data.feelslike_f > 16 && data.feelslike_f < 37.9) {
+	if (data.feelslike_f > 16 && data.feelslike_f < 34.9) {
 		$.toWear.text = "Wear a winter jacket and pants plus socks, light hat.";
 	} 
-	else if (data.feelslike_f > 15.9 && data.feelslike_f < -10) {
-		$.toWear.text = "Heavy winter jacket, sweatshirt or fleese underneith jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style.";
+	else if (data.feelslike_f > 15.9 && data.feelslike_f < -15) {
+		$.toWear.text = "Heavy winter jacket, sweatshirt or fleece underneath jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style.";
 	}
-	else if ( data.feelslike_f > 38 && data.feelslike_f < 60.9) {
+	else if ( data.feelslike_f > 35 && data.feelslike_f < 45.9) {
 		$.toWear.text = "Light jacket and pants";
 	} 
+	else if ( data.feelslike_f > 46 && data.feelslike_f < 60.9) {
+		$.toWear.text = "Sweatshirt and pants. Longsleeve shirt if you're feeling brave";
+	} 
 	else if (data.feelslike_f > 61 && data.feelslike_f < 74.9) {
-		$.toWear.text = "T-shirt and jeans";
+		$.toWear.text = "T-shirt and jeans. If you're staying out past sundown, probably bring a sweater";
 	} 
 	else if (data.feelslike_f > 75 && data.feelslike_f < 89.9) {
 		$.toWear.text = "Shorts and T-shirt";
