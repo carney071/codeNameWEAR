@@ -32,17 +32,17 @@ var getWeather = function(coords) {
 			Ti.API.info('icon' + json.current_observation.icon_url);
 			Ti.API.info('humidity =' + json.current_observation.relative_humidity);
 			//wind data
-			Ti.API.info('Wind direction =' + json.current_observation.wind_dir + 'mph');
+			Ti.API.info('Wind direction =' + json.current_observation.wind_dir );
 			Ti.API.info('humidity =' + json.current_observation.wind_mph);
 			Ti.API.info('humidity =' + json.current_observation.windchill_f);
 			//pushes the data onto the index xml labels/views
 			$.city.text = json.current_observation.display_location.full;
 			$.temp.text = "Temp= " + json.current_observation.temp_f;
 			$.feelsLike.text = "Feels Like= " + json.current_observation.feelslike_f;
-			$.windMPH.text = 'Wind Speed=' + json.current_observation.wind_mph;
-			$.windDir.text = 'Wind Direction=' + json.current_observation.wind_dir;
+			$.windMPH.text = json.current_observation.wind_mph+ 'mph';
+			$.windDir.text =  json.current_observation.wind_dir;
 			$.windChill.text = 'Wind Chill=' + json.current_observation.windchill_f;
-			$.humidity.text = "Humidity= " + json.current_observation.relative_humidity;
+			$.humidity.text = "Humidity=" + json.current_observation.relative_humidity;
 			$.skys.text = json.current_observation.weather;
 			$.weatherIcon.image = json.current_observation.icon_url;
 			wear(json.current_observation);
