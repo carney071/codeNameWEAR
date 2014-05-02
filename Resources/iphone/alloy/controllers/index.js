@@ -14,7 +14,7 @@ function Controller() {
     $.__views.Weather = Ti.UI.createView({
         backgroundColor: "#FF1111",
         width: "100%",
-        height: "65%",
+        height: "100%",
         top: "0%",
         id: "Weather"
     });
@@ -23,157 +23,149 @@ function Controller() {
         backgroundColor: "#FFFFFF",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         top: "6%",
-        width: "70%",
-        height: "39%",
+        width: "75%",
+        height: "52%",
         zIndex: "0",
         id: "label1"
     });
-    $.__views.Weather.add($.__views.label1);
+    $.__views.index.add($.__views.label1);
     $.__views.city = Ti.UI.createLabel({
         color: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "22%",
+        top: "18%",
         width: "100%",
         height: "Ti.UI.SIZE",
         zIndex: "3",
         id: "city"
     });
-    $.__views.Weather.add($.__views.city);
+    $.__views.index.add($.__views.city);
     $.__views.skys = Ti.UI.createLabel({
         color: "#FFFFFF",
         backgroundColor: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "50%",
+        top: "62%",
         width: "45%",
-        height: "10%",
+        height: "8%",
         zIndex: "4",
         left: "10",
         id: "skys"
     });
-    $.__views.Weather.add($.__views.skys);
+    $.__views.index.add($.__views.skys);
     $.__views.weatherIcon = Ti.UI.createImageView({
         width: "18%",
         top: "7%",
         backgroundColor: "#FFFFFF",
-        height: "15%",
+        height: "10%",
         id: "weatherIcon"
     });
-    $.__views.Weather.add($.__views.weatherIcon);
+    $.__views.index.add($.__views.weatherIcon);
     $.__views.temp = Ti.UI.createLabel({
         color: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "30%",
+        top: "25%",
         width: "45%",
-        height: "10%",
+        height: "8%",
         zIndex: "4",
         font: {
-            fontSize: 40
+            fontSize: 50
         },
         id: "temp"
     });
-    $.__views.Weather.add($.__views.temp);
+    $.__views.index.add($.__views.temp);
     $.__views.feelsLike = Ti.UI.createLabel({
         color: "#FFFFFF",
         backgroundColor: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "50%",
+        top: "62%",
         width: "45%",
-        height: "10%",
+        height: "8%",
         zIndex: "4",
         right: "10",
         id: "feelsLike"
     });
-    $.__views.Weather.add($.__views.feelsLike);
+    $.__views.index.add($.__views.feelsLike);
     $.__views.humidity = Ti.UI.createLabel({
         color: "#FFFFFF",
         backgroundColor: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "65%",
+        top: "74%",
         width: "45%",
-        height: "10%",
+        height: "8%",
         zIndex: "4",
         left: "10",
         id: "humidity"
     });
-    $.__views.Weather.add($.__views.humidity);
+    $.__views.index.add($.__views.humidity);
     $.__views.windMPH = Ti.UI.createLabel({
         color: "#FFFFFF",
         backgroundColor: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "80%",
+        top: "86%",
         width: "45%",
-        height: "10%",
+        height: "8%",
         zIndex: "4",
         right: "10",
         id: "windMPH"
     });
-    $.__views.Weather.add($.__views.windMPH);
+    $.__views.index.add($.__views.windMPH);
     $.__views.windDir = Ti.UI.createLabel({
         color: "#FFFFFF",
         backgroundColor: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "80%",
+        top: "86%",
         width: "45%",
-        height: "10%",
+        height: "8%",
         zIndex: "4",
         left: "10",
         id: "windDir"
     });
-    $.__views.Weather.add($.__views.windDir);
+    $.__views.index.add($.__views.windDir);
     $.__views.windChill = Ti.UI.createLabel({
         color: "#FFFFFF",
         backgroundColor: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "65%",
+        top: "74%",
         width: "45%",
-        height: "10%",
+        height: "8%",
         zIndex: "4",
         right: "10",
         id: "windChill"
     });
-    $.__views.Weather.add($.__views.windChill);
-    $.__views.Clothing = Ti.UI.createView({
-        backgroundColor: "#0066FF",
-        width: "100%",
-        height: "35%",
-        top: "65%",
-        id: "Clothing"
-    });
-    $.__views.index.add($.__views.Clothing);
+    $.__views.index.add($.__views.windChill);
     $.__views.label2 = Ti.UI.createLabel({
         color: "#0066FF",
         backgroundColor: "#FFFFFF",
-        text: "What you should wear",
+        text: "What you should wear:",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "5%",
+        top: "38%",
         width: "70%",
+        font: {
+            fontSize: 20
+        },
         height: "Ti.UI.SIZE",
         zIndex: "2",
         id: "label2"
     });
-    $.__views.Clothing.add($.__views.label2);
+    $.__views.index.add($.__views.label2);
     $.__views.toWear = Ti.UI.createLabel({
-        color: "#FFFFFF",
-        backgroundColor: "#1100FF",
+        color: "#0066FF",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "40%",
+        top: "45%",
         width: "65%",
-        height: "40%",
         zIndex: "4",
         id: "toWear"
     });
-    $.__views.Clothing.add($.__views.toWear);
+    $.__views.index.add($.__views.toWear);
     $.__views.refresh = Ti.UI.createButton({
         top: "20%",
         width: "50%",
         height: "30",
-        color: "#0066FF",
-        backgroundColor: "#FFFFFF",
+        color: "#FFFFFF",
         borderRadius: "2",
         id: "refresh",
         title: "Refresh"
     });
-    $.__views.Clothing.add($.__views.refresh);
+    $.__views.index.add($.__views.refresh);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var init = function() {

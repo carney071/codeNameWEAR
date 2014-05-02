@@ -1,7 +1,7 @@
 "#Weather":{
 	backgroundColor:'#FF1111',
 	width:'100%',
-	height:'65%',
+	height:'100%',
 	top:'0%'
 }
 "#label1":{
@@ -10,8 +10,8 @@
 	
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
 	top:'6%',
-	width:"70%",
-	height:'39%',
+	width:"75%",
+	height:'52%',
 	zIndex:"0"
 }
 
@@ -19,7 +19,7 @@
 	color:"#900",
 	//backgroundColor:"#FFFFFF",
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
-	top:"22%",
+	top:"18%",
 	width:"100%",
 	height:"Ti.UI.SIZE",
 	zIndex:"3"
@@ -28,9 +28,9 @@
 	color:"#FFFFFF",
 	backgroundColor:"#900",
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
-	top:"50%",
+	top:"62%",
 	width:"45%",
-	height:'10%',
+	height:'8%',
 	zIndex:"4",
 	left:"10"
 }
@@ -39,19 +39,19 @@
 	top:"7%",
 	backgroundColor:"#FFFFFF",
 	//right:"50",
-	height:"15%"
+	height:"10%"
 	}
 "#temp":{
 	color:"#900",
 	//backgroundColor:"#900",
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
-	top:"30%",
+	top:"25%",
 	width:"45%",
-	height:"10%",
+	height:"8%",
 	zIndex:"4",
 	font:
 	{
-		fontSize:40,
+		fontSize:50,
 	}
 	//left:"10"
 }
@@ -59,9 +59,9 @@
 	color:"#FFFFFF",
 	backgroundColor:"#900",
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
-	top:"50%",
+	top:"62%",
 	width:"45%",
-	height:"10%",
+	height:"8%",
 	zIndex:"4",
 	right:"10"		
 }
@@ -69,9 +69,9 @@
 	color:"#FFFFFF",
 	backgroundColor:"#900",
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
-	top:"65%",
+	top:"74%",
 	width:"45%",
-	height:"10%",
+	height:"8%",
 	zIndex:"4",
 	left:"10"
 }
@@ -79,9 +79,9 @@
 	color:"#FFFFFF",
 	backgroundColor:"#900",
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
-	top:"80%",
+	top:"86%",
 	width:"45%",
-	height:"10%",
+	height:"8%",
 	zIndex:"4",
 	right:"10"
 }
@@ -89,9 +89,9 @@
 	color:"#FFFFFF",
 	backgroundColor:"#900",
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
-	top:"80%",
+	top:"86%",
 	width:"45%",
-	height:"10%",
+	height:"8%",
 	zIndex:"4",
 	left:"10"
 }
@@ -99,42 +99,48 @@
 	color:"#FFFFFF",
 	backgroundColor:"#900",
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
-	top:"65%",
+	top:"74%",
 	width:"45%",
-	height:"10%",
+	height:"8%",
 	zIndex:"4",
 	right:"10"
 }
-"#Clothing":{
+/*"#Clothing":{
 	backgroundColor:"#0066FF",
 	width:"100%",
 	height:"35%",
 	top:"65%"
 }
+*/
 "#label2":{
 	color:"#0066FF",
 	backgroundColor:"#FFFFFF",
-	text:"What you should wear",
+	text:"What you should wear:",
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
-	top:"5%",
+	top:"38%",
 	width:"70%",
+	font:
+	{
+		fontSize:20,
+	},
 	height:"Ti.UI.SIZE",
 	zIndex:"2"
+	
 }
 "#toWear":{
-	color:"#FFFFFF",
-	backgroundColor:"#1100FF",
+	color:"#0066FF",
+	//backgroundColor:"#1100FF",
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
-	top:"40%",
+	top:"45%",
 	width:"65%",
-	height:"40%",
+	//height:"40%",
 	zIndex:"4"
 }
 "#refresh":{
 	top:"20%",
 	width:"50%",
 	height:"30",
-	color:"#0066FF",
-	backgroundColor:"#FFFFFF",
+	color:"#FFFFFF",
+	//backgroundColor:"#FFFFFF",
 	borderRadius:"2"
 }

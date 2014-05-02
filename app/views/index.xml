@@ -12,12 +12,11 @@
 			<Label id="windMPH" />
 			<Label id="windDir" />
 			<Label id="windChill" />
-	</View>
-		<View id="Clothing" >
+
 			<Label id="label2"/>
 			<Label id="toWear"/>
 			<Button id="refresh"  title="Refresh" />
 
-		</View>
+		
 	</Window>
 </Alloy>
