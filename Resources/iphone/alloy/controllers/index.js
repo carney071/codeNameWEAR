@@ -20,22 +20,19 @@ function Controller() {
     });
     $.__views.index.add($.__views.Weather);
     $.__views.label1 = Ti.UI.createLabel({
-        color: "#900",
         backgroundColor: "#FFFFFF",
-        text: "Weather",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "7%",
-        width: "100%",
-        height: "Ti.UI.SIZE",
-        zIndex: "3",
+        top: "6%",
+        width: "70%",
+        height: "39%",
+        zIndex: "0",
         id: "label1"
     });
     $.__views.Weather.add($.__views.label1);
     $.__views.city = Ti.UI.createLabel({
         color: "#900",
-        backgroundColor: "#FFFFFF",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "13%",
+        top: "22%",
         width: "100%",
         height: "Ti.UI.SIZE",
         zIndex: "3",
@@ -46,7 +43,7 @@ function Controller() {
         color: "#FFFFFF",
         backgroundColor: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "22%",
+        top: "50%",
         width: "45%",
         height: "10%",
         zIndex: "4",
@@ -55,28 +52,23 @@ function Controller() {
     });
     $.__views.Weather.add($.__views.skys);
     $.__views.weatherIcon = Ti.UI.createImageView({
-<<<<<<< HEAD
-        width: "20%",
-        top: "20%",
-=======
-        id: "weatherIcon",
         width: "18%",
-        top: "19%",
->>>>>>> b06364ffa231cef5b1824a08c8e741d7a203f34e
-        right: "50",
+        top: "7%",
+        backgroundColor: "#FFFFFF",
         height: "15%",
         id: "weatherIcon"
     });
     $.__views.Weather.add($.__views.weatherIcon);
     $.__views.temp = Ti.UI.createLabel({
-        color: "#FFFFFF",
-        backgroundColor: "#900",
+        color: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "35%",
+        top: "30%",
         width: "45%",
         height: "10%",
         zIndex: "4",
-        left: "10",
+        font: {
+            fontSize: 40
+        },
         id: "temp"
     });
     $.__views.Weather.add($.__views.temp);
@@ -84,7 +76,7 @@ function Controller() {
         color: "#FFFFFF",
         backgroundColor: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "35%",
+        top: "50%",
         width: "45%",
         height: "10%",
         zIndex: "4",
@@ -96,7 +88,7 @@ function Controller() {
         color: "#FFFFFF",
         backgroundColor: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "50%",
+        top: "65%",
         width: "45%",
         height: "10%",
         zIndex: "4",
@@ -108,7 +100,7 @@ function Controller() {
         color: "#FFFFFF",
         backgroundColor: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "65%",
+        top: "80%",
         width: "45%",
         height: "10%",
         zIndex: "4",
@@ -120,9 +112,9 @@ function Controller() {
         color: "#FFFFFF",
         backgroundColor: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "65%",
+        top: "80%",
         width: "45%",
-        height: "15%",
+        height: "10%",
         zIndex: "4",
         left: "10",
         id: "windDir"
@@ -132,9 +124,9 @@ function Controller() {
         color: "#FFFFFF",
         backgroundColor: "#900",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: "50%",
+        top: "65%",
         width: "45%",
-        height: "15%",
+        height: "10%",
         zIndex: "4",
         right: "10",
         id: "windChill"
@@ -154,7 +146,7 @@ function Controller() {
         text: "What you should wear",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         top: "5%",
-        width: "100%",
+        width: "70%",
         height: "Ti.UI.SIZE",
         zIndex: "2",
         id: "label2"
@@ -208,12 +200,12 @@ function Controller() {
                 Ti.API.info("humidity =" + json.current_observation.wind_mph);
                 Ti.API.info("humidity =" + json.current_observation.windchill_f);
                 $.city.text = json.current_observation.display_location.full;
-                $.temp.text = "Temp= " + json.current_observation.temp_f;
-                $.feelsLike.text = "Feels Like= " + json.current_observation.feelslike_f;
+                $.temp.text = json.current_observation.temp_f + "º";
+                $.feelsLike.text = "Feels Like = " + json.current_observation.feelslike_f + "º";
                 $.windMPH.text = json.current_observation.wind_mph + "mph";
                 $.windDir.text = json.current_observation.wind_dir;
-                $.windChill.text = "Wind Chill=" + json.current_observation.windchill_f;
-                $.humidity.text = "Humidity=" + json.current_observation.relative_humidity;
+                $.windChill.text = "Wind Chill = " + json.current_observation.windchill_f + "º";
+                $.humidity.text = "Humidity = " + json.current_observation.relative_humidity;
                 $.skys.text = json.current_observation.weather;
                 $.weatherIcon.image = json.current_observation.icon_url;
                 wear(json.current_observation);
@@ -237,11 +229,7 @@ function Controller() {
         } else alert("Please enable location services");
     };
     var wear = function(data) {
-<<<<<<< HEAD
-        $.toWear.text = data.feelslike_f > 16 && 37.9 > data.feelslike_f ? "Wear a winter jacket and pants plus socks, light hat." : data.feelslike_f > 15.9 && -10 > data.feelslike_f ? "Heavy winter jacket, sweatshirt or fleese underneith jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style." : data.feelslike_f > 38 && 60.9 > data.feelslike_f ? "Light jacket and pants" : data.feelslike_f > 61 && 74.9 > data.feelslike_f ? "T-shirt and jeans" : data.feelslike_f > 75 && 89.9 > data.feelslike_f ? "Shorts and T-shirt" : data.feelslike_f > 90 && 110 > data.feelslike_f ? "Light shirt in both material and color, light shorts, and probably sunscreen" : "Stay indoors as often as possible";
-=======
-        $.toWear.text = data.feelslike_f > 16 && 34.9 > data.feelslike_f ? "Wear a winter jacket and pants plus socks, light hat." : data.feelslike_f > 15.9 && -15 > data.feelslike_f ? "Heavy winter jacket, sweatshirt or fleece underneath jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style." : data.feelslike_f > 35 && 45.9 > data.feelslike_f ? "Light jacket and pants" : data.feelslike_f > 46 && 60.9 > data.feelslike_f ? "Sweatshirt and pants. Longsleeve shirt if you're feeling brave" : data.feelslike_f > 61 && 74.9 > data.feelslike_f ? "T-shirt and jeans. If you're staying out past sundown, probably bring a sweater" : data.feelslike_f > 75 && 89.9 > data.feelslike_f ? "Shorts and T-shirt" : data.feelslike_f > 90 && 110 > data.feelslike_f ? "Light shirt in both material and color, light shorts, and probably sunscreen" : "Stay indoors as often as possible";
->>>>>>> b06364ffa231cef5b1824a08c8e741d7a203f34e
+        $.toWear.text = data.feelslike_f > 16 && 34.9 > data.feelslike_f ? "Wear a winter jacket and pants plus socks, light hat." : data.feelslike_f > 15.9 && -15 > data.feelslike_f ? "Heavy winter jacket, sweatshirt or fleece underneath jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style." : data.feelslike_f > 35 && 49.9 > data.feelslike_f ? "Light jacket and pants" : data.feelslike_f > 50 && 60.9 > data.feelslike_f ? "Sweatshirt and pants. Longsleeve shirt if you're feeling brave" : data.feelslike_f > 61 && 74.9 > data.feelslike_f ? "T-shirt and jeans. If you're staying out past sundown, probably bring a sweater" : data.feelslike_f > 75 && 89.9 > data.feelslike_f ? "Shorts and T-shirt" : data.feelslike_f > 90 && 110 > data.feelslike_f ? "Light shirt in both material and color, light shorts, and probably sunscreen" : "Stay indoors as often as possible";
     };
     init();
     _.extend($, exports);

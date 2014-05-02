@@ -37,12 +37,12 @@ var getWeather = function(coords) {
 			Ti.API.info('humidity =' + json.current_observation.windchill_f);
 			//pushes the data onto the index xml labels/views
 			$.city.text = json.current_observation.display_location.full;
-			$.temp.text = "Temp= " + json.current_observation.temp_f;
-			$.feelsLike.text = "Feels Like= " + json.current_observation.feelslike_f;
+			$.temp.text =  json.current_observation.temp_f + 'º';
+			$.feelsLike.text = "Feels Like = " + json.current_observation.feelslike_f+ 'º';
 			$.windMPH.text = json.current_observation.wind_mph+ 'mph';
 			$.windDir.text =  json.current_observation.wind_dir;
-			$.windChill.text = 'Wind Chill=' + json.current_observation.windchill_f;
-			$.humidity.text = "Humidity=" + json.current_observation.relative_humidity;
+			$.windChill.text = 'Wind Chill = ' + json.current_observation.windchill_f + 'º';
+			$.humidity.text = "Humidity = " + json.current_observation.relative_humidity;
 			$.skys.text = json.current_observation.weather;
 			$.weatherIcon.image = json.current_observation.icon_url;
 			wear(json.current_observation);
@@ -84,10 +84,10 @@ var wear = function(data) {
 	else if (data.feelslike_f > 15.9 && data.feelslike_f < -15) {
 		$.toWear.text = "Heavy winter jacket, sweatshirt or fleece underneath jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style.";
 	}
-	else if ( data.feelslike_f > 35 && data.feelslike_f < 45.9) {
+	else if ( data.feelslike_f > 35 && data.feelslike_f < 49.9) {
 		$.toWear.text = "Light jacket and pants";
 	} 
-	else if ( data.feelslike_f > 46 && data.feelslike_f < 60.9) {
+	else if ( data.feelslike_f > 50 && data.feelslike_f < 60.9) {
 		$.toWear.text = "Sweatshirt and pants. Longsleeve shirt if you're feeling brave";
 	} 
 	else if (data.feelslike_f > 61 && data.feelslike_f < 74.9) {

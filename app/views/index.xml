@@ -2,7 +2,7 @@
 	<Window title="Main">
 
 		<View id="Weather" >
-			<Label id="label1" />
+			<Label id="label1" /> 
 			<Label id="city"/>
 			<Label id="skys" />
 			<ImageView id="weatherIcon"/>
