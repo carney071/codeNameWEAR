@@ -17,6 +17,6 @@
 			<Label id="toWear"/>
 			<Button id="refresh"  title="Refresh" />
 
-		
+		</View>
 	</Window>
 </Alloy>

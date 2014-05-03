@@ -46,6 +46,7 @@ var getWeather = function(coords) {
 			$.skys.text = json.current_observation.weather;
 			$.weatherIcon.image = json.current_observation.icon_url;
 			wear(json.current_observation);
+			colorChange(json.current_observation);
 		} catch(e) {
 			Ti.API.info(e);
 		}
@@ -89,6 +90,7 @@ var wear = function(data) {
 	} 
 	else if ( data.feelslike_f > 50 && data.feelslike_f < 60.9) {
 		$.toWear.text = "Sweatshirt and pants. Longsleeve shirt if you're feeling brave";
+
 	} 
 	else if (data.feelslike_f > 61 && data.feelslike_f < 74.9) {
 		$.toWear.text = "T-shirt and jeans. If you're staying out past sundown, probably bring a sweater";
@@ -103,5 +105,34 @@ var wear = function(data) {
 		$.toWear.text = "Stay indoors as often as possible";
 	}
 };
-
+var colorChange = function(data){
+	if(data.weather = 'Overcast')
+	{
+		$.Weather.backgroundColor ='#9FEE00';
+	}
+	else if (data.weather = 'Rain')
+	{
+		$.Weather.backgroundColor ="#2D3C82";
+	}
+	else if (data.weather = 'Sunny')
+	{
+		$.Weather.backgroundColor ='#FFC600';
+	}
+	else if (data.weather = 'Snow')
+	{
+		$.Weather.backgroundColor ='#FFFFFF';
+	}
+	else if (data.weather = 'Mostly Cloudy')
+	{
+		$.Weather.backgroundColor = '#78E700';
+	}
+	else if (data.weather = 'Partly Cloudy')
+	{
+		$.Weather.backgroundColor ='#C6F500';
+	}
+	else if (data.weather = 'Fog')
+	{
+		$.Weather.backgroundColor = "#64AAD0";
+	}
+};
 init();
