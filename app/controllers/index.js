@@ -118,6 +118,10 @@ var colorChange = function(data){
 	{
 		$.Weather.backgroundColor ='#FFC600';
 	}
+	else if (data.weather = 'Clear')
+	{
+		$.Weather.backgroundColor ='#FFC600';
+	}
 	else if (data.weather = 'Snow')
 	{
 		$.Weather.backgroundColor ='#FFFFFF';
@@ -128,7 +132,7 @@ var colorChange = function(data){
 	}
 	else if (data.weather = 'Partly Cloudy')
 	{
-		$.Weather.backgroundColor ='#C6F500';
+		$.Weather.backgroundColor ='#FFC600';
 	}
 	else if (data.weather = 'Fog')
 	{

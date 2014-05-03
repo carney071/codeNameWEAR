@@ -67,7 +67,7 @@ function Controller() {
         height: "8%",
         zIndex: "4",
         font: {
-            fontSize: 50
+            fontSize: 55
         },
         id: "temp"
     });
@@ -140,7 +140,7 @@ function Controller() {
         top: "38%",
         width: "70%",
         font: {
-            fontSize: 20
+            fontSize: 22
         },
         height: "Ti.UI.SIZE",
         zIndex: "2",
@@ -225,7 +225,7 @@ function Controller() {
         $.toWear.text = data.feelslike_f > 16 && 34.9 > data.feelslike_f ? "Wear a winter jacket and pants plus socks, light hat." : data.feelslike_f > 15.9 && -15 > data.feelslike_f ? "Heavy winter jacket, sweatshirt or fleece underneath jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style." : data.feelslike_f > 35 && 49.9 > data.feelslike_f ? "Light jacket and pants" : data.feelslike_f > 50 && 60.9 > data.feelslike_f ? "Sweatshirt and pants. Longsleeve shirt if you're feeling brave" : data.feelslike_f > 61 && 74.9 > data.feelslike_f ? "T-shirt and jeans. If you're staying out past sundown, probably bring a sweater" : data.feelslike_f > 75 && 89.9 > data.feelslike_f ? "Shorts and T-shirt" : data.feelslike_f > 90 && 110 > data.feelslike_f ? "Light shirt in both material and color, light shorts, and probably sunscreen" : "Stay indoors as often as possible";
     };
     var colorChange = function(data) {
-        (data.weather = "Overcast") ? $.Weather.backgroundColor = "#9FEE00" : (data.weather = "Rain") ? $.Weather.backgroundColor = "#2D3C82" : (data.weather = "Sunny") ? $.Weather.backgroundColor = "#FFC600" : (data.weather = "Snow") ? $.Weather.backgroundColor = "#FFFFFF" : (data.weather = "Mostly Cloudy") ? $.Weather.backgroundColor = "#78E700" : (data.weather = "Partly Cloudy") ? $.Weather.backgroundColor = "#C6F500" : (data.weather = "Fog") && ($.Weather.backgroundColor = "#64AAD0");
+        (data.weather = "Overcast") ? $.Weather.backgroundColor = "#9FEE00" : (data.weather = "Rain") ? $.Weather.backgroundColor = "#2D3C82" : (data.weather = "Sunny") ? $.Weather.backgroundColor = "#FFC600" : (data.weather = "Clear") ? $.Weather.backgroundColor = "#FFC600" : (data.weather = "Snow") ? $.Weather.backgroundColor = "#FFFFFF" : (data.weather = "Mostly Cloudy") ? $.Weather.backgroundColor = "#78E700" : (data.weather = "Partly Cloudy") ? $.Weather.backgroundColor = "#FFC600" : (data.weather = "Fog") && ($.Weather.backgroundColor = "#64AAD0");
     };
     init();
     _.extend($, exports);
