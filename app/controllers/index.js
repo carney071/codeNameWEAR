@@ -80,23 +80,26 @@ if (Ti.Geolocation.locationServicesEnabled) {
 
 var wear = function(data) {
 	if (data.feelslike_f > 16 && data.feelslike_f < 34.9) {
-		$.toWear.text = "Wear a winter jacket and pants plus socks, light hat.";
+		$.toWear.text = "Wear a winter jacket and pants plus socks, winter hat. Heavy gloves";
 	} 
-	else if (data.feelslike_f > 15.9 && data.feelslike_f < -15) {
-		$.toWear.text = "Heavy winter jacket, sweatshirt or fleece underneath jacket, wool socks, heavy gloves, and heavy winter hat. Maybe a heavy scarf if that's your style.";
+	else if (data.feelslike_f > -15 && data.feelslike_f < 15.9) {
+		$.toWear.text = "Heavy winter jacket, sweatshirt underneath, wool socks, heavy gloves, and heavy winter hat.";
 	}
-	else if ( data.feelslike_f > 35 && data.feelslike_f < 49.9) {
-		$.toWear.text = "Light jacket and pants";
+	else if ( data.feelslike_f > 42 && data.feelslike_f < 51.9) {
+		$.toWear.text = "Light jacket and pants. Long-sleeved shirt undernieth if you'll be outside for awhile' ";
 	} 
-	else if ( data.feelslike_f > 50 && data.feelslike_f < 60.9) {
+	else if ( data.feelslike_f > 52 && data.feelslike_f < 60.9) {
 		$.toWear.text = "Sweatshirt and pants. Longsleeve shirt if you're feeling brave";
 
+	} 
+	else if ( data.feelslike_f > 35 && data.feelslike_f < 41.9) {
+		$.toWear.text = "Medium weight jacket and pants. Maybe a light knit hat and lighter gloves";
 	} 
 	else if (data.feelslike_f > 61 && data.feelslike_f < 74.9) {
 		$.toWear.text = "T-shirt and jeans. If you're staying out past sundown, probably bring a sweater";
 	} 
 	else if (data.feelslike_f > 75 && data.feelslike_f < 89.9) {
-		$.toWear.text = "Shorts and T-shirt";
+		$.toWear.text = "Shorts and T-shirt. Sandals if you're not working";
 	}
 	else if (data.feelslike_f > 90 && data.feelslike_f < 110) {
 		$.toWear.text = "Light shirt in both material and color, light shorts, and probably sunscreen";
@@ -105,7 +108,7 @@ var wear = function(data) {
 		$.toWear.text = "Stay indoors as often as possible";
 	}
 };
-var colorChange = function(data){
+/*var colorChange = function(data){
 	if(data.weather = 'Overcast')
 	{
 		$.Weather.backgroundColor ='#9FEE00';
@@ -139,4 +142,5 @@ var colorChange = function(data){
 		$.Weather.backgroundColor = "#64AAD0";
 	}
 };
+*/
 init();
