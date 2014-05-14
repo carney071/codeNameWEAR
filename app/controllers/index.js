@@ -38,11 +38,11 @@ var getWeather = function(coords) {
 			//pushes the data onto the index xml labels/views
 			$.city.text = json.current_observation.display_location.full;
 			$.temp.text =  json.current_observation.temp_f + 'º';
-			$.feelsLike.text = "Feels Like = " + json.current_observation.feelslike_f+ 'º';
+			$.feelsLike.text = "Feels Like " + json.current_observation.feelslike_f+ 'º';
 			$.windMPH.text = json.current_observation.wind_mph+ 'mph';
 			$.windDir.text =  json.current_observation.wind_dir;
-			$.windChill.text = 'Wind Chill = ' + json.current_observation.windchill_f + 'º';
-			$.humidity.text = "Humidity = " + json.current_observation.relative_humidity;
+			$.windChill.text = 'Wind Chill ' + json.current_observation.windchill_f + 'º';
+			$.humidity.text = "Humidity " + json.current_observation.relative_humidity;
 			$.skys.text = json.current_observation.weather;
 			$.weatherIcon.image = json.current_observation.icon_url;
 			wear(json.current_observation);
@@ -79,29 +79,29 @@ if (Ti.Geolocation.locationServicesEnabled) {
 //this is the wear function that takes the current temp and spits out what to wear
 
 var wear = function(data) {
-	if (data.feelslike_f > 16 && data.feelslike_f < 34.9) {
+	if (data.temp_f > 16 && data.temp_f < 34.9) {
 		$.toWear.text = "Wear a winter jacket and pants plus socks, winter hat. Heavy gloves";
 	} 
-	else if (data.feelslike_f > -15 && data.feelslike_f < 15.9) {
+	else if (data.temp_f > -15 && data.temp_f < 15.9) {
 		$.toWear.text = "Heavy winter jacket, sweatshirt underneath, wool socks, heavy gloves, and heavy winter hat.";
 	}
-	else if ( data.feelslike_f > 42 && data.feelslike_f < 51.9) {
+	else if ( data.temp_f > 41.01 && data.temp_f < 51.9) {
 		$.toWear.text = "Light jacket and pants. Long-sleeved shirt undernieth if you'll be outside for awhile' ";
 	} 
-	else if ( data.feelslike_f > 52 && data.feelslike_f < 60.9) {
-		$.toWear.text = "Sweatshirt and pants. Longsleeve shirt if you're feeling brave";
+	else if ( data.temp_f > 52.01 && data.temp_f < 60.9) {
+		$.toWear.text = "Sweatshirt or fleece and pants. Longsleeve shirt if you're feeling brave";
 
 	} 
-	else if ( data.feelslike_f > 35 && data.feelslike_f < 41.9) {
+	else if ( data.temp_f > 35. && data.temp_f < 40.999) {
 		$.toWear.text = "Medium weight jacket and pants. Maybe a light knit hat and lighter gloves";
 	} 
-	else if (data.feelslike_f > 61 && data.feelslike_f < 74.9) {
+	else if (data.temp_f > 61 && data.temp_f < 74.9) {
 		$.toWear.text = "T-shirt and jeans. If you're staying out past sundown, probably bring a sweater";
 	} 
-	else if (data.feelslike_f > 75 && data.feelslike_f < 89.9) {
+	else if (data.temp_f > 75 && data.temp_f < 89.9) {
 		$.toWear.text = "Shorts and T-shirt. Sandals if you're not working";
 	}
-	else if (data.feelslike_f > 90 && data.feelslike_f < 110) {
+	else if (data.temp_f > 90 && data.temp_f < 110) {
 		$.toWear.text = "Light shirt in both material and color, light shorts, and probably sunscreen";
 	}
 	else {

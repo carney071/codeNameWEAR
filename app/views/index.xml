@@ -3,6 +3,7 @@
 
 		<View id="Weather" >
 			<Label id="label1" /> 
+			<Label id="navBar">
 			<Label id="city"/>
 			<Label id="skys" />
 			<ImageView id="weatherIcon"/>
@@ -15,6 +16,10 @@
 
 			<Label id="label2"/>
 			<Label id="toWear"/>
+			<Label id="background1"/>
+			<View id="line1"/>
+			<View id="line2"/>
+			<View id="line3"/>
 			<Button id="refresh"  title="Refresh" />
 
 		</View>
