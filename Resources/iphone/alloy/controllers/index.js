@@ -12,7 +12,7 @@ function Controller() {
     });
     $.__views.index && $.addTopLevelView($.__views.index);
     $.__views.Weather = Ti.UI.createView({
-        backgroundColor: "#0F55B8",
+        backgroundColor: "#056696",
         width: "100%",
         height: "100%",
         top: "0%",
@@ -39,7 +39,7 @@ function Controller() {
     });
     $.__views.Weather.add($.__views.navBar);
     $.__views.city = Ti.UI.createLabel({
-        color: "#0F55B8",
+        color: "#056696",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         top: "14%",
         width: "100%",
@@ -67,7 +67,7 @@ function Controller() {
     });
     $.__views.Weather.add($.__views.weatherIcon);
     $.__views.temp = Ti.UI.createLabel({
-        color: "#0F55B8",
+        color: "#056696",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         top: "19%",
         width: "45%",
@@ -193,25 +193,23 @@ function Controller() {
         id: "line3"
     });
     $.__views.Weather.add($.__views.line3);
-    $.__views.refresh = Ti.UI.createButton({
-        top: "20%",
+    $.__views.Warm = Ti.UI.createButton({
+        top: "90%",
         width: "50%",
         height: "30",
-        color: "#BCC0C4",
+        color: "#ffffff",
+        backgroundColor: "#FFFFFF",
         borderRadius: "2",
-        id: "refresh",
-        title: "Refresh"
+        id: "Warm",
+        title: "I run warm"
     });
-    $.__views.Weather.add($.__views.refresh);
+    $.__views.Weather.add($.__views.Warm);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var init = function() {
         geoLocation();
         $.index.open();
     };
-    $.refresh.addEventListener("click", function() {
-        geoLocation();
-    });
     var getWeather = function(coords) {
         arguments[0] || {};
         var apiCall = Ti.Network.createHTTPClient();
@@ -259,8 +257,11 @@ function Controller() {
         } else alert("Please enable location services");
     };
     var wear = function(data) {
-        $.toWear.text = data.temp_f > 16 && 34.9 > data.temp_f ? "Wear a winter jacket and pants plus socks, winter hat. Heavy gloves" : data.temp_f > -15 && 15.9 > data.temp_f ? "Heavy winter jacket, sweatshirt underneath, wool socks, heavy gloves, and heavy winter hat." : data.temp_f > 41.01 && 51.9 > data.temp_f ? "Light jacket and pants. Long-sleeved shirt undernieth if you'll be outside for awhile' " : data.temp_f > 52.01 && 60.9 > data.temp_f ? "Sweatshirt or fleece and pants. Longsleeve shirt if you're feeling brave" : data.temp_f > 35 && 40.999 > data.temp_f ? "Medium weight jacket and pants. Maybe a light knit hat and lighter gloves" : data.temp_f > 61 && 74.9 > data.temp_f ? "T-shirt and jeans. If you're staying out past sundown, probably bring a sweater" : data.temp_f > 75 && 89.9 > data.temp_f ? "Shorts and T-shirt. Sandals if you're not working" : data.temp_f > 90 && 110 > data.temp_f ? "Light shirt in both material and color, light shorts, and probably sunscreen" : "Stay indoors as often as possible";
+        $.toWear.text = data.temp_f > 16 && 34.9 > data.temp_f ? "Wear a winter jacket and pants plus socks, winter hat. Heavy gloves" : data.temp_f > -15 && 15.9 > data.temp_f ? "Heavy winter jacket, sweatshirt underneath, wool socks, heavy gloves, and heavy winter hat." : data.temp_f > 41.01 && 51.9 > data.temp_f ? "Light jacket and pants. Long-sleeved shirt undernieth if you'll be outside for awhile " : data.temp_f > 52.01 && 60.9 > data.temp_f ? "Sweatshirt or fleece and pants. Longsleeve shirt if you're feeling brave" : data.temp_f > 35 && 40.999 > data.temp_f ? "Medium weight jacket and pants. Maybe a light knit hat and lighter gloves" : data.temp_f > 61 && 74.9 > data.temp_f ? "T-shirt and jeans. If you're staying out past sundown, probably bring a sweater" : data.temp_f > 75 && 89.9 > data.temp_f ? "Shorts and T-shirt. Sandals if you're not working" : data.temp_f > 90 && 110 > data.temp_f ? "Light shirt in both material and color, light shorts, and probably sunscreen" : "Stay indoors as often as possible";
     };
+    $.Warm.addEventListener("click", function(data) {
+        $.toWear.text = data.temp_f > 16 && 34.9 > data.temp_f ? "Wear a winter jacket and pants plus socks, winter hat. Heavy gloves" : data.temp_f > -15 && 15.9 > data.temp_f ? "Heavy winter jacket, sweatshirt underneath, wool socks, heavy gloves, and heavy winter hat." : data.temp_f > 41.01 && 51.9 > data.temp_f ? "blah " : data.temp_f > 52.01 && 60.9 > data.temp_f ? "Sweatshirt or fleece and pants. Longsleeve shirt if you're feeling brave" : data.temp_f > 35 && 40.999 > data.temp_f ? "Medium weight jacket and pants. Maybe a light knit hat and lighter gloves" : data.temp_f > 61 && 74.9 > data.temp_f ? "T-shirt and jeans. If you're staying out past sundown, probably bring a sweater" : data.temp_f > 75 && 89.9 > data.temp_f ? "Shorts and T-shirt. Sandals if you're not working" : data.temp_f > 90 && 110 > data.temp_f ? "Light shirt in both material and color, light shorts, and probably sunscreen" : "Stay indoors as often as possible";
+    });
     init();
     _.extend($, exports);
 }

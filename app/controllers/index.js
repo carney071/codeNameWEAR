@@ -9,9 +9,7 @@ var init = function() {
 
 
 	// this is the event listener for the button
-$.refresh.addEventListener('click',function(){
-	geoLocation();
-});
+
 var getWeather = function(coords) {
 	var args = arguments[0] || {};
 
@@ -86,7 +84,7 @@ var wear = function(data) {
 		$.toWear.text = "Heavy winter jacket, sweatshirt underneath, wool socks, heavy gloves, and heavy winter hat.";
 	}
 	else if ( data.temp_f > 41.01 && data.temp_f < 51.9) {
-		$.toWear.text = "Light jacket and pants. Long-sleeved shirt undernieth if you'll be outside for awhile' ";
+		$.toWear.text = "Light jacket and pants. Long-sleeved shirt undernieth if you'll be outside for awhile ";
 	} 
 	else if ( data.temp_f > 52.01 && data.temp_f < 60.9) {
 		$.toWear.text = "Sweatshirt or fleece and pants. Longsleeve shirt if you're feeling brave";
@@ -108,6 +106,40 @@ var wear = function(data) {
 		$.toWear.text = "Stay indoors as often as possible";
 	}
 };
+
+$.Warm.addEventListener('click',function(data){
+		if (data.temp_f > 16 && data.temp_f < 34.9) {
+		$.toWear.text = "Wear a winter jacket and pants plus socks, winter hat. Heavy gloves";
+	} 
+	else if (data.temp_f > -15 && data.temp_f < 15.9) {
+		$.toWear.text = "Heavy winter jacket, sweatshirt underneath, wool socks, heavy gloves, and heavy winter hat.";
+	}
+	else if ( data.temp_f > 41.01 && data.temp_f < 51.9) {
+		$.toWear.text = "blah ";
+	} 
+	else if ( data.temp_f > 52.01 && data.temp_f < 60.9) {
+		$.toWear.text = "Sweatshirt or fleece and pants. Longsleeve shirt if you're feeling brave";
+
+	} 
+	else if ( data.temp_f > 35. && data.temp_f < 40.999) {
+		$.toWear.text = "Medium weight jacket and pants. Maybe a light knit hat and lighter gloves";
+	} 
+	else if (data.temp_f > 61 && data.temp_f < 74.9) {
+		$.toWear.text = "T-shirt and jeans. If you're staying out past sundown, probably bring a sweater";
+	} 
+	else if (data.temp_f > 75 && data.temp_f < 89.9) {
+		$.toWear.text = "Shorts and T-shirt. Sandals if you're not working";
+	}
+	else if (data.temp_f > 90 && data.temp_f < 110) {
+		$.toWear.text = "Light shirt in both material and color, light shorts, and probably sunscreen";
+	}
+	else {
+		$.toWear.text = "Stay indoors as often as possible";
+	}
+
+});
+
+
 /*var colorChange = function(data){
 	if(data.weather = 'Overcast')
 	{
